@@ -1,0 +1,44 @@
+﻿<!doctype html>
+<html lang="th"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>บทเรียน 1: ใช้ VAnta จัดคิวงาน GPU</title>
+<style>
+:root{--ink:#20232e;--muted:#5f6372;--accent:#6048b5;--soft:#f5f2ff;--line:#ddd8ef}
+body{font-family:Segoe UI,Arial,sans-serif;max-width:900px;margin:0 auto;padding:40px 24px;color:var(--ink);line-height:1.65;background:#fff}
+h1{font-size:2.2rem;line-height:1.15;color:#35276d}h2{margin-top:2rem;color:#35276d}
+.lead{font-size:1.15rem;color:var(--muted)}.step{border-left:4px solid var(--accent);background:var(--soft);padding:14px 18px;margin:14px 0;border-radius:0 10px 10px 0}
+.callout{border:1px solid var(--line);padding:16px;border-radius:12px;background:#fffdf5}
+code{background:#eeeafd;padding:2px 5px;border-radius:4px}a{color:#5037a3}
+table{width:100%;border-collapse:collapse}th,td{border-bottom:1px solid var(--line);padding:9px;text-align:left}
+.quiz{background:#eefbf5;padding:16px;border-radius:12px}
+</style></head><body>
+<p><a href="../reference/vanta-quick-reference.html">ชีทสรุป</a> · <a href="../README.md">README</a></p>
+<h1>บทเรียน 1: ใช้ VAnta จัดคิวงาน GPU</h1>
+<p class="lead">เป้าหมาย: เปิดแอป รันเดโม อ่านเหตุผลของคิว และเลือกเครื่องมือให้เหมาะกับงาน</p>
+<div class="callout"><strong>ภาพจำ:</strong> VAnta ไม่ได้เร่ง GPU ให้แรงขึ้น แต่เป็นผู้จัดคิวที่ป้องกันงานชนกันและอธิบายการตัดสินใจ</div>
+<h2>1. เริ่มจาก Demo Scenario</h2>
+<div class="step"><strong>กด Run demo scenario</strong><br>VAnta จะใส่งานตัวอย่าง 3 งาน: Balanced (Normal), Critical และ VRAM guard check</div>
+<p>เปิดตาราง <strong>Workload queue</strong> แล้วดูการเปลี่ยนสถานะ งานที่กำลังทำจะเป็น <code>RUNNING</code> งานที่รอทรัพยากรจะเป็น <code>WAITING</code> และงานที่ไม่ผ่านกฎจะเป็น <code>FAILED</code> พร้อมเหตุผลในคอลัมน์ <strong>DECISION</strong></p>
+<h2>2. อ่าน Decision Feed</h2>
+<p>อ่านจากเหตุการณ์ล่าสุดด้านบน:</p>
+<table><tr><th>ข้อความ</th><th>คุณควรเข้าใจว่า</th></tr>
+<tr><td>entered the ... queue</td><td>งานถูกส่งเข้าคิวแล้ว</td></tr>
+<tr><td>Started ...</td><td>กฎผ่านและ VAnta เปิด process</td></tr>
+<tr><td>Waiting for ... VRAM</td><td>ต้องรอพื้นที่ VRAM ให้พอ</td></tr>
+<tr><td>Concurrency limit reached</td><td>มีงานควบคุมอยู่แล้ว จึงยังไม่เริ่มงานใหม่</td></tr>
+<tr><td>Rejected ... safe capacity</td><td>งานใหญ่เกินพื้นที่หลังหัก reserve 512 MB</td></tr>
+<tr><td>Verified ... VRAM changed</td><td>VAnta ตรวจผลหลังเริ่มงาน</td></tr>
+</table>
+<h2>3. เลือกปุ่มให้ตรงงาน</h2>
+<div class="step"><strong>Add GPU Pulse to queue</strong><br>ใช้เมื่ออยากทดลองระบบด้วย workload ที่เตรียมไว้ เลือกขนาดและ Priority</div>
+<div class="step"><strong>Submit custom command</strong><br>ใช้เมื่อมีโปรแกรม CLI ของตนเอง ระบุ VRAM ที่คาดว่าจะใช้ให้ใกล้เคียงจริง</div>
+<div class="step"><strong>Open Policy Lab</strong><br>ใช้เรียนรู้ความต่างของนโยบายคิวโดยไม่เปิด process จริง</div>
+<h2>4. ประโยชน์ในสถานการณ์จริง</h2>
+<ul><li><strong>VRAM จำกัด:</strong> กัน reserve ไว้เพื่อลดโอกาส allocation ล้มเหลว</li><li><strong>หลายงาน:</strong> priority ทำให้งานสำคัญได้สิทธิ์ก่อนตามกฎที่มองเห็นได้</li><li><strong>ตรวจสอบย้อนหลัง:</strong> SQLite เก็บ job และ decision history ไว้ดูสาเหตุ</li><li><strong>หลังแอปหยุดผิดปกติ:</strong> VAnta ตรวจ child process เดิมก่อนเปิดคิวต่อ</li></ul>
+<div class="callout"><strong>ข้อจำกัดสำคัญ:</strong> VAnta ควบคุมเฉพาะ process ที่เปิดผ่าน VAnta และ CUDA Pulse ต้องใช้ NVIDIA GPU กับไดรเวอร์ที่ทำงานได้</div>
+<h2>แบบฝึกหัดสั้น</h2>
+<div class="quiz"><strong>ลองตอบก่อนดูเฉลย:</strong><br>ถ้างานหนึ่งขึ้น <code>WAITING</code> และ Decision บอก <code>Concurrency limit reached</code> คุณควรทำอะไร?</div>
+<details><summary>เฉลย</summary><p>รอให้งานที่กำลัง <code>RUNNING</code> จบ หรือกดยกเลิกงานนั้นถ้าจำเป็น แล้ว VAnta จะประเมินคิวใหม่เอง</p></details>
+<p>แหล่งอ้างอิง: <a href="https://docs.nvidia.com/deploy/nvml-api/">NVIDIA NVML</a> · <a href="https://github.com/pllpert643-ship-it/VAnta">VAnta repository</a></p>
+<p><strong>ถ้ามีจุดไหนไม่ชัด ถามผมต่อได้เลย</strong></p>
+</body></html>
+

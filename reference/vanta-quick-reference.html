@@ -1,0 +1,29 @@
+﻿<!doctype html>
+<html lang="th"><head><meta charset="utf-8"><title>VAnta Quick Reference</title>
+<style>
+body{font-family:Segoe UI,Arial,sans-serif;max-width:900px;margin:40px auto;padding:0 24px;color:#20232e;line-height:1.6}
+h1,h2{line-height:1.2;color:#35276d}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.card{border:1px solid #d9d4ef;border-radius:12px;padding:16px;background:#faf9ff}code{background:#f0edf9;padding:2px 5px;border-radius:4px}
+</style></head><body>
+<h1>VAnta — ชีทสรุปใช้งาน</h1>
+<p><strong>จำง่าย:</strong> Observe → Rule → Queue / Action → Verify</p>
+<div class="grid">
+<div class="card"><h2>Run demo scenario</h2><p>เพิ่มงานตัวอย่าง 3 งาน เพื่อดู Normal เริ่มก่อน, Critical รอคิว และ VRAM guard ถูกปฏิเสธเมื่อเกินพื้นที่ปลอดภัย</p></div>
+<div class="card"><h2>GPU Pulse</h2><p>เลือก Light, Balanced หรือ Heavy แล้วเลือก Priority จากนั้นกด Add GPU Pulse to queue</p></div>
+<div class="card"><h2>Custom command</h2><p>ส่งคำสั่ง CLI ของคุณเอง พร้อมบอก VRAM ที่คาดว่าจะใช้</p></div>
+<div class="card"><h2>Policy Lab</h2><p>จำลอง Strict priority กับ Fit what fits เพื่อดู trade-off ของลำดับงานและเวลารอ</p></div>
+</div>
+<h2>สถานะในตาราง</h2>
+<table><tr><th>สถานะ</th><th>ความหมาย</th></tr>
+<tr><td>Queued</td><td>เข้าคิวแล้ว ยังไม่ถูกประเมินให้เริ่ม</td></tr>
+<tr><td>Waiting</td><td>รอ concurrency หรือ VRAM ให้พอ</td></tr>
+<tr><td>Running</td><td>VAnta เปิด process แล้ว</td></tr>
+<tr><td>Completed</td><td>จบด้วย exit code 0</td></tr>
+<tr><td>Failed</td><td>เปิดไม่ได้, exit ผิดพลาด หรือไม่ผ่านกฎ VRAM</td></tr>
+<tr><td>Cancelled</td><td>ผู้ใช้ยกเลิก</td></tr>
+</table>
+<h2>ประโยชน์</h2>
+<ul><li>ลดโอกาสงาน GPU ชนกันจน VRAM เต็ม</li><li>จัดลำดับงานสำคัญอย่างคาดเดาได้</li><li>รู้เหตุผลของการเริ่ม, รอ หรือปฏิเสธผ่าน Decision Feed</li><li>ตรวจผลหลังเริ่มงานด้วย VRAM verification</li></ul>
+<p><a href="../lessons/0001-use-vanta.html">เปิดบทเรียนฉบับเต็ม →</a></p>
+</body></html>
+
