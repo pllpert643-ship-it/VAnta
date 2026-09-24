@@ -29,7 +29,7 @@ driver, Windows Scheduler, registry, or system services.
 
 ## Quick start for users
 
-1. Download the latest `VAnta-windows-x64.zip` from the [Releases](../../releases) page, extract it, and run `VAnta\\VAnta.exe`.
+1. Download the latest `VAnta-windows-x64.zip` from the [Releases](../../releases) page, extract it, and run `VAnta\VAnta.exe`.
 2. Click **Run demo scenario**.
 3. Watch the queue and **Decision feed**:
    - the balanced workload starts first;
