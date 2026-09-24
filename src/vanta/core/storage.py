@@ -92,12 +92,32 @@ class VantaRepository:
                 ),
             )
 
+    def load_jobs(self) -> list[Job]:
+        with self._lock:
+            rows = self._connection.execute(
+                "SELECT * FROM jobs ORDER BY created_at ASC"
+            ).fetchall()
+        jobs: list[Job] = []
+        for row in rows:
+            values = dict(row)
+            values["command"] = json.loads(values.pop("command_json"))
+            before_snapshot = values.pop("before_snapshot_json")
+            values["before_snapshot"] = json.loads(before_snapshot) if before_snapshot else None
+            values["verified"] = bool(values["verified"])
+            jobs.append(Job.from_dict(values))
+        return jobs
+
     def recent_events(self, limit: int = 30) -> list[dict[str, object]]:
         with self._lock:
             rows = self._connection.execute(
                 "SELECT * FROM activity ORDER BY sequence DESC LIMIT ?", (limit,)
             ).fetchall()
-        return [dict(row) for row in rows]
+        events: list[dict[str, object]] = []
+        for row in rows:
+            event = dict(row)
+            event["details"] = json.loads(event.pop("details_json"))
+            events.append(event)
+        return events
 
     def close(self) -> None:
         with self._lock:

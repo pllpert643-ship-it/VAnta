@@ -43,7 +43,10 @@ Windows scheduler, or the registry.
 - Before/after verification with measured VRAM change
 - Decision feed that records why each action happened
 - SQLite event history stored locally
+- Safe recovery of interrupted child processes after an unexpected shutdown
+- Policy Lab for comparing queue policies against a deterministic workload
 - Built-in CUDA workload that requires no PyTorch or CUDA Toolkit
+- One-click demo scenario covering queueing, verification, and VRAM rejection
 - Custom command submission for real CLI workloads
 
 ## Technology stack

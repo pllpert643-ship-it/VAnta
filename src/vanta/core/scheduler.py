@@ -25,6 +25,42 @@ class Scheduler:
         self.repository = repository
         self.event_sink = event_sink
         self.jobs: list[Job] = []
+        self.recovery_blocked = False
+        load_jobs = getattr(repository, "load_jobs", None)
+        if load_jobs is not None:
+            self.jobs = list(load_jobs())
+            self._recover_interrupted_jobs()
+
+    def _recover_interrupted_jobs(self) -> None:
+        self.recovery_blocked = False
+        for job in self.jobs:
+            if job.status not in {JobStatus.QUEUED, JobStatus.WAITING, JobStatus.RUNNING}:
+                continue
+            if job.status is JobStatus.QUEUED or job.status is JobStatus.WAITING:
+                # Waiting jobs are safe to put back in the queue after a restart.
+                continue
+            recover = getattr(self.runner, "recover", None)
+            recovered = recover(job) if recover is not None else True
+            if not recovered:
+                self.recovery_blocked = True
+                reason = "Queue paused: interrupted child process could not be confirmed stopped"
+                if job.status_reason != reason:
+                    job.status_reason = reason
+                    self.repository.save_job(job)
+                    self._emit("restore", f"Paused queue: cannot confirm {job.name} stopped", job)
+                continue
+            job.status = JobStatus.CANCELLED
+            job.status_reason = "Interrupted when VAnta closed; child process stopped"
+            job.finished_at = utc_now()
+            self.repository.save_job(job)
+            self.repository.add_event(
+                ActivityEvent(
+                    kind="restore",
+                    message=f"Recovered {job.name} and stopped its interrupted child process",
+                    job_id=job.id,
+                    details={"child_stopped": True},
+                )
+            )
 
     def submit(self, job: Job) -> Job:
         self.jobs.append(job)
@@ -33,6 +69,10 @@ class Scheduler:
         return job
 
     def tick(self, snapshot: ResourceSnapshot) -> None:
+        if self.recovery_blocked:
+            self._recover_interrupted_jobs()
+            if self.recovery_blocked:
+                return
         self._poll_running(snapshot)
         running_count = sum(job.status is JobStatus.RUNNING for job in self.jobs)
         candidates = sorted(
@@ -47,7 +87,10 @@ class Scheduler:
                     job.status = JobStatus.WAITING
                     job.status_reason = decision.reason
                     self.repository.save_job(job)
-                continue
+                # Strict priority is deliberately head-of-line blocking. A lower
+                # priority job cannot bypass a higher priority job waiting for
+                # capacity; this keeps the policy predictable and explainable.
+                break
 
             if decision.action is RuleAction.REJECT:
                 job.status = JobStatus.FAILED
@@ -115,7 +158,8 @@ class Scheduler:
         if job is None or job.status in {JobStatus.COMPLETED, JobStatus.FAILED, JobStatus.CANCELLED}:
             return False
         if job.status is JobStatus.RUNNING:
-            self.runner.cancel(job.id)
+            if not self.runner.cancel(job.id):
+                return False
         job.status = JobStatus.CANCELLED
         job.status_reason = "Cancelled by user"
         job.finished_at = utc_now()

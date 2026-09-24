@@ -27,10 +27,11 @@ Highlight the controller loop:
 
 ## 3. Show priority scheduling — 50 seconds
 
-1. Select the Balanced pulse with Normal priority and add it to the queue.
-2. Wait until it is running.
-3. Submit a Light pulse with Critical priority.
-4. Show that the Critical job waits while the Normal job continues.
+1. Click **Run demo scenario**. It submits a Balanced workload first, then a
+   Critical workload, followed by a VRAM guard check.
+2. Show that the Critical job waits while the Normal job continues.
+3. Keep the queue visible while the guard check is held behind the higher
+   priority work.
 
 > VAnta uses a predictable non-preemptive policy. The current job is safe from
 > forced suspension, while the critical job moves ahead of other waiting jobs.
@@ -48,8 +49,12 @@ Wait for the first job to finish and show the Critical job start next.
 
 ## 5. Show the safety rule — 25 seconds
 
-Submit a custom or preset job whose requested VRAM is larger than the safe
-capacity.
+After the first two demo jobs finish, the **VRAM guard check** is rejected
+because its requested VRAM is larger than the safe capacity.
+
+If GPU telemetry is unavailable, the rule engine explains that it is using its
+concurrency-only fallback; the guard check then serves as a normal process
+lifecycle example instead of a VRAM rejection.
 
 > The rule engine rejects a request that cannot fit while preserving the 512 MB
 > safety reserve. The user sees the exact reason instead of a mysterious crash.
@@ -65,3 +70,13 @@ Show the complete dashboard and repository title card.
 End card:
 
 **VAnta — See the workload. Explain the decision. Control the queue.**
+
+## Optional Policy Lab shot — 30 seconds
+
+Open **Policy Lab** from the launch card. Show the same three-job scenario under
+the two policies:
+
+> Strict priority keeps the critical job ahead of the small preview, even while
+> VRAM is temporarily unavailable. Fit what fits starts the preview sooner and
+> reports the lower wait time. VAnta makes that scheduling trade-off visible
+> before changing the real queue policy.

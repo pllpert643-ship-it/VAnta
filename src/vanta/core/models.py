@@ -81,6 +81,29 @@ class Job:
         data["status"] = self.status.value
         return data
 
+    @classmethod
+    def from_dict(cls, values: dict[str, Any]) -> "Job":
+        """Rehydrate a persisted job without exposing storage details to callers."""
+        before_snapshot = values.get("before_snapshot")
+        if isinstance(before_snapshot, str):
+            before_snapshot = None
+        return cls(
+            name=str(values["name"]),
+            command=list(values.get("command", [])),
+            priority=Priority(int(values.get("priority", int(Priority.NORMAL)))),
+            required_vram_mb=int(values.get("required_vram_mb", 256)),
+            id=str(values["id"]),
+            status=JobStatus(values.get("status", JobStatus.QUEUED.value)),
+            created_at=str(values.get("created_at", utc_now())),
+            started_at=values.get("started_at"),
+            finished_at=values.get("finished_at"),
+            pid=values.get("pid"),
+            exit_code=values.get("exit_code"),
+            status_reason=str(values.get("status_reason", "Waiting for scheduler")),
+            verified=bool(values.get("verified", False)),
+            before_snapshot=before_snapshot if isinstance(before_snapshot, dict) else None,
+        )
+
 
 @dataclass(slots=True)
 class ActivityEvent:

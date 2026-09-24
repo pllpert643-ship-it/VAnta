@@ -31,8 +31,10 @@ from PySide6.QtWidgets import (
 )
 
 from vanta.core.models import ActivityEvent, Job, JobStatus, Priority, ResourceSnapshot
+from vanta.core.demo import build_demo_specs
 from vanta.core.scheduler import Scheduler
 from vanta.infra.monitor import SystemMonitor
+from vanta.ui.policy_lab import PolicyLabDialog
 from vanta.ui.widgets import FlowStep, MetricCard, TrendChart
 
 
@@ -118,6 +120,7 @@ class MainWindow(QMainWindow):
         self.setMinimumSize(1100, 700)
         self.resize(1360, 850)
         self._build_ui()
+        self._load_activity_history()
 
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.refresh)
@@ -165,8 +168,8 @@ class MainWindow(QMainWindow):
         tagline.setObjectName("muted")
         self.device_label = QLabel("Detecting NVIDIA GPU…")
         self.device_label.setObjectName("muted")
-        live = QLabel("●  CONTROLLER LIVE")
-        live.setObjectName("livePill")
+        self.controller_label = QLabel("●  CONTROLLER LIVE")
+        self.controller_label.setObjectName("livePill")
         row.addWidget(mark)
         row.addWidget(brand)
         row.addSpacing(10)
@@ -174,7 +177,7 @@ class MainWindow(QMainWindow):
         row.addStretch()
         row.addWidget(self.device_label)
         row.addSpacing(12)
-        row.addWidget(live)
+        row.addWidget(self.controller_label)
         return frame
 
     def _build_metrics(self) -> QGridLayout:
@@ -268,14 +271,23 @@ class MainWindow(QMainWindow):
         submit = QPushButton("Add GPU Pulse to queue")
         submit.setObjectName("primaryButton")
         submit.clicked.connect(self.submit_pulse)
+        demo = QPushButton("Run demo scenario")
+        demo.setObjectName("primaryButton")
+        demo.setToolTip("Queue a normal job, a critical job, and a VRAM guard check")
+        demo.clicked.connect(self.submit_demo)
         custom = QPushButton("Submit custom command")
         custom.clicked.connect(self.submit_custom)
+        policy_lab = QPushButton("Open Policy Lab")
+        policy_lab.setToolTip("Replay a workload scenario under two queue policies")
+        policy_lab.clicked.connect(self.open_policy_lab)
         layout.addWidget(title)
         layout.addWidget(description)
         layout.addWidget(self.preset)
         layout.addWidget(self.priority)
         layout.addWidget(submit)
+        layout.addWidget(demo)
         layout.addWidget(custom)
+        layout.addWidget(policy_lab)
         return frame
 
     def _build_flow_card(self) -> QFrame:
@@ -289,7 +301,7 @@ class MainWindow(QMainWindow):
         layout.addWidget(title)
         layout.addWidget(FlowStep("1", "Observe", "GPU, VRAM, CPU and RAM"))
         layout.addWidget(FlowStep("2", "Rule", "1 job · 512 MB reserve"))
-        layout.addWidget(FlowStep("3", "Queue / Action", "Priority then arrival time"))
+        layout.addWidget(FlowStep("3", "Queue / Action", "Strict priority then arrival time"))
         layout.addWidget(FlowStep("4", "Verify", "Measure after launch"))
         return frame
 
@@ -310,6 +322,9 @@ class MainWindow(QMainWindow):
     def refresh(self) -> None:
         self.snapshot = self.monitor.sample()
         self.scheduler.tick(self.snapshot)
+        self.controller_label.setText(
+            "●  QUEUE PAUSED" if self.scheduler.recovery_blocked else "●  CONTROLLER LIVE"
+        )
         self._update_metrics(self.snapshot)
         self._update_jobs()
 
@@ -359,6 +374,36 @@ class MainWindow(QMainWindow):
         self.scheduler.submit(job)
         self.refresh()
 
+    def submit_demo(self) -> None:
+        """Queue the complete presentation scenario in a predictable order."""
+        specs = build_demo_specs(self.snapshot)
+        sequence = len(self.scheduler.jobs) + 1
+
+        # Start the normal workload before adding the critical workload. This
+        # makes the non-preemptive rule visible instead of letting priority
+        # ordering choose the first job before the demo begins.
+        first = specs[0]
+        self.scheduler.submit(
+            Job(
+                name=f"{first.name} {sequence:02d}",
+                command=workload_command(first.pulse_memory_mb, first.duration_s),
+                priority=first.priority,
+                required_vram_mb=first.required_vram_mb,
+            )
+        )
+        self.refresh()
+
+        for offset, spec in enumerate(specs[1:], start=1):
+            self.scheduler.submit(
+                Job(
+                    name=f"{spec.name} {sequence + offset:02d}",
+                    command=workload_command(spec.pulse_memory_mb, spec.duration_s),
+                    priority=spec.priority,
+                    required_vram_mb=spec.required_vram_mb,
+                )
+            )
+        self.refresh()
+
     def submit_custom(self) -> None:
         dialog = CustomJobDialog(self)
         if dialog.exec() != QDialog.DialogCode.Accepted:
@@ -394,6 +439,25 @@ class MainWindow(QMainWindow):
         self.activity_list.insertItem(0, item)
         while self.activity_list.count() > 50:
             self.activity_list.takeItem(self.activity_list.count() - 1)
+
+    def _load_activity_history(self) -> None:
+        events = self.scheduler.repository.recent_events(limit=50)
+        # The repository returns newest first; inserting in reverse preserves
+        # the same newest-at-top presentation as live events.
+        for event in reversed(events):
+            timestamp = str(event.get("timestamp", ""))
+            try:
+                local_time = datetime.fromisoformat(timestamp).astimezone().strftime("%H:%M:%S")
+            except ValueError:
+                local_time = "--:--:--"
+            item = QListWidgetItem(
+                f"•  {local_time}  {event.get('message', '')}"
+            )
+            item.setToolTip(str(event.get("message", "")))
+            self.activity_list.insertItem(0, item)
+
+    def open_policy_lab(self) -> None:
+        PolicyLabDialog(self).exec()
 
     def closeEvent(self, event: object) -> None:  # noqa: N802 - Qt API
         self.timer.stop()
