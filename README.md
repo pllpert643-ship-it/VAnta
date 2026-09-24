@@ -63,7 +63,7 @@ winget install --id=astral-sh.uv -e
 Clone and run VAnta:
 
 ```powershell
-git clone https://github.com/<owner>/VAnta.git
+git clone https://github.com/pllpert643-ship-it/VAnta.git
 cd VAnta
 uv sync --extra dev
 uv run vanta
@@ -132,4 +132,5 @@ restart VAnta so recovery can be checked again.
 - [Project brief](docs/PROJECT.md)
 - [Demo script](docs/DEMO_SCRIPT.md)
 - [License](LICENSE)
+
 
