@@ -1,4 +1,4 @@
-﻿[package]
+[package]
 name = "vanta-native"
 version = "0.2.1"
 edition = "2024"
@@ -31,3 +31,6 @@ panic = "unwind"
 [[bin]]
 name = "VAntaNative"
 path = "src/main.rs"
+
+[build-dependencies]
+winresource = "0.1.34"

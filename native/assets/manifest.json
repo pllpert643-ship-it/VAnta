@@ -1,0 +1,72 @@
+{
+  "source": {
+    "path": "native/assets/vanta-logo.png",
+    "provenance": "User supplied and selected in this session",
+    "approved_on": "2026-11-24",
+    "rights": "Supplied for this project by the project owner; no third-party license inferred"
+  },
+  "processing": "Preserve source bytes; bicubic resizing with transparent padding and unchanged composition",
+  "assets": [
+    {
+      "path": "native/assets/vanta-icon-256.png",
+      "width": 256,
+      "height": 256,
+      "alpha": true,
+      "source": "native/assets/vanta-logo.png"
+    },
+    {
+      "path": "native/assets/vanta-logo-512.png",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "source": "native/assets/vanta-logo.png"
+    },
+    {
+      "path": "native/assets/vanta-logo.png",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "source": "native/assets/vanta-logo.png"
+    },
+    {
+      "path": "packaging/store/Assets/Square150x150Logo.png",
+      "width": 150,
+      "height": 150,
+      "alpha": true,
+      "source": "native/assets/vanta-logo.png"
+    },
+    {
+      "path": "packaging/store/Assets/Square150x150Logo.scale-200.png",
+      "width": 300,
+      "height": 300,
+      "alpha": true,
+      "source": "native/assets/vanta-logo.png"
+    },
+    {
+      "path": "packaging/store/Assets/Square44x44Logo.png",
+      "width": 44,
+      "height": 44,
+      "alpha": true,
+      "source": "native/assets/vanta-logo.png"
+    },
+    {
+      "path": "packaging/store/Assets/StoreLogo.png",
+      "width": 50,
+      "height": 50,
+      "alpha": true,
+      "source": "native/assets/vanta-logo.png"
+    }
+  ],
+  "windows_icon": {
+    "path": "native/assets/vanta.ico",
+    "sizes": [
+      16,
+      24,
+      32,
+      48,
+      64,
+      128,
+      256
+    ]
+  }
+}

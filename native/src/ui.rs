@@ -132,6 +132,7 @@ enum Sort {
     Write,
 }
 pub struct VantaApp {
+    logo: egui::TextureHandle,
     worker: TelemetryWorker,
     live: Option<Snapshot>,
     historical: Option<Snapshot>,
@@ -174,6 +175,10 @@ pub fn launch(data_dir: PathBuf, smoke: bool) -> eframe::Result {
     let options = eframe::NativeOptions {
         viewport: egui::ViewportBuilder::default()
             .with_title("VAnta | Resource observatory")
+            .with_icon(
+                eframe::icon_data::from_png_bytes(include_bytes!("../assets/vanta-icon-256.png"))
+                    .expect("embedded Vanta icon must be a valid PNG"),
+            )
             .with_inner_size([1200.0, 760.0])
             .with_min_inner_size([960.0, 640.0]),
         renderer: eframe::Renderer::Glow,
@@ -241,7 +246,19 @@ impl VantaApp {
         worker.set_interval(Duration::from_secs(
             preferences.interval_seconds.clamp(1, 10),
         ));
+        let logo_data =
+            eframe::icon_data::from_png_bytes(include_bytes!("../assets/vanta-logo-512.png"))
+                .expect("embedded Vanta logo must be a valid PNG");
+        let logo = cc.egui_ctx.load_texture(
+            "vanta-logo",
+            egui::ColorImage::from_rgba_unmultiplied(
+                [logo_data.width as usize, logo_data.height as usize],
+                &logo_data.rgba,
+            ),
+            egui::TextureOptions::LINEAR,
+        );
         Self {
+            logo,
             worker,
             live: None,
             historical: None,
@@ -1304,7 +1321,14 @@ impl eframe::App for VantaApp {
             )
             .show(ctx, |ui| {
                 ui.add_space(12.0);
-                ui.label(RichText::new("V / VAnta").size(29.0).strong().color(ACCENT));
+                let logo_size = (ui.available_height() - 520.0).clamp(96.0, 160.0);
+                ui.vertical_centered(|ui| {
+                    ui.add(
+                        egui::Image::new(&self.logo)
+                            .fit_to_exact_size(Vec2::splat(logo_size))
+                            .alt_text("Vanta Native logo"),
+                    );
+                });
                 ui.label(
                     RichText::new("RESOURCE OBSERVATORY")
                         .size(10.0)
@@ -1333,17 +1357,20 @@ impl eframe::App for VantaApp {
                         self.page = page;
                     }
                 }
+                let show_workflow = ui.available_height() >= 160.0;
                 ui.with_layout(egui::Layout::bottom_up(egui::Align::LEFT), |ui| {
                     ui.label(RichText::new("0.2 / RUST NATIVE").size(10.0).color(MUTED));
                     if ui.button("Settings").clicked() {
                         self.page = Page::Settings;
                     }
                     ui.separator();
-                    ui.label(
-                        RichText::new("Observe\nRule\nQueue / action\nVerify")
-                            .color(MUTED)
-                            .size(13.0),
-                    );
+                    if show_workflow {
+                        ui.label(
+                            RichText::new("Observe\nRule\nQueue / action\nVerify")
+                                .color(MUTED)
+                                .size(13.0),
+                        );
+                    }
                 });
             });
         egui::TopBottomPanel::top("topbar")

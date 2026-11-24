@@ -1,5 +1,9 @@
 ﻿# VAnta
 
+<p align="center">
+  <img src="native/assets/vanta-logo-512.png" alt="Vanta Native" width="280">
+</p>
+
 ## Native Microsoft Store candidate
 
 The native Store edition (0.2.1) has a locally checked preview MSIX. It is not yet an installed or Microsoft-certified release. This edition has read-only service/startup inventory and disables system cache/standby mutations. The Python/portable feature descriptions below may differ.
