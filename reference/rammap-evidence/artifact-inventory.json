@@ -1,0 +1,49 @@
+﻿{
+    "evidence_id":  "LOCAL-IDENTITY-001",
+    "retrieved_at":  "2026-11-16T20:12:08.6504262+07:00",
+    "method":  "Get-FileHash SHA256; FileVersionInfo; Get-AuthenticodeSignature (no target execution)",
+    "artifacts":  [
+                      {
+                          "path":  "C:\\Users\\MSI GF63 Thin\\Downloads\\RAMMap\\Eula.txt",
+                          "bytes":  7490,
+                          "sha256":  "8329BCBADC7F81539A4969CA13F0BE5B8EB7652B912324A1926FC9BFB6EC005A",
+                          "file_version":  null,
+                          "product_version":  null,
+                          "description":  null,
+                          "company":  null,
+                          "signature_status":  "UnknownError",
+                          "signature_message":  "The form specified for the subject is not one supported or known by the specified trust provider",
+                          "signer_subject":  null,
+                          "signer_thumbprint":  null,
+                          "timestamp_subject":  null
+                      },
+                      {
+                          "path":  "C:\\Users\\MSI GF63 Thin\\Downloads\\RAMMap\\RAMMap.exe",
+                          "bytes":  677792,
+                          "sha256":  "9200237404FC7936ED5854D904907F0AB9A4C689F38F98B49D30599A5498C84D",
+                          "file_version":  "1.61",
+                          "product_version":  "1.61",
+                          "description":  "RamMap - physical memory analyzer",
+                          "company":  "Sysinternals - www.sysinternals.com",
+                          "signature_status":  "Valid",
+                          "signature_message":  "Signature verified.",
+                          "signer_subject":  "CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+                          "signer_thumbprint":  "8740DF4ACB749640AD318E4BE842F72EC651AD80",
+                          "timestamp_subject":  "CN=Microsoft Time-Stamp Service, OU=Thales TSS ESN:60BC-E383-2635, OU=Microsoft Operations Puerto Rico, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"
+                      },
+                      {
+                          "path":  "C:\\Users\\MSI GF63 Thin\\Downloads\\RAMMap\\RAMMap64a.exe",
+                          "bytes":  379792,
+                          "sha256":  "9D110B7AF0F89899BD6C8E7B3D7E689DD1E0F5471AD7AEF03E8288BA169F4DE3",
+                          "file_version":  "1.61",
+                          "product_version":  "1.61",
+                          "description":  "RamMap - physical memory analyzer",
+                          "company":  "Sysinternals - www.sysinternals.com",
+                          "signature_status":  "Valid",
+                          "signature_message":  "Signature verified.",
+                          "signer_subject":  "CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+                          "signer_thumbprint":  "8740DF4ACB749640AD318E4BE842F72EC651AD80",
+                          "timestamp_subject":  "CN=Microsoft Time-Stamp Service, OU=Thales TSS ESN:49BC-E37A-233C, OU=Microsoft America Operations, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"
+                      }
+                  ]
+}

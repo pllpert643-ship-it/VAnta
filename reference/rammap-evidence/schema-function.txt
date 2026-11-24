@@ -1,0 +1,44 @@
+﻿args:
+  type: object
+  properties:
+    path:
+      type: string
+      description: App or program path
+    address:
+      description: Procedure name or address
+      type: string
+      minLength: 1
+  required[1]: path
+  additionalProperties: false
+options:
+  type: object
+  properties:
+    procedure:
+      description: Procedure name or address; use --procedure=<value> for leading dashes
+      type: string
+      minLength: 1
+    snapshot:
+      description: Load and update a local analysis snapshot
+      type: string
+      minLength: 1
+    "target-format":
+      description: Explicit headerless interpretation (dos-com or raw-binary); omission preserves header-based detection
+      type: string
+      enum[2]: dos-com,raw-binary
+    architecture:
+      description: Caller-supplied CPU family; required with --target-format raw-binary
+      type: string
+      enum[5]: "6502",x86,x86_64,arm,arm64
+    "entry-point":
+      description: Caller-supplied load and entry address (0xhex); required with --target-format raw-binary
+      type: string
+      pattern: "^0x[0-9A-Fa-f]{1,16}$"
+    provider:
+      description: Bind deep analysis to a provider ID or use deterministic auto selection
+      anyOf[2]:
+        - type: string
+          const: auto
+        - type: string
+          minLength: 1
+          pattern: "^[a-z][a-z0-9\\x2d]*$"
+  additionalProperties: false

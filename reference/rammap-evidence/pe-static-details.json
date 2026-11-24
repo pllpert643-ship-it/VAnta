@@ -1,0 +1,2075 @@
+{
+  "evidence_id": "LOCAL-PE-DECODE-001",
+  "method": "Read-only Python struct PE import table parsing and ASCII-subset UTF-16LE run enumeration of exact REA resource payload ranges. Text runs are not a semantic dialog/menu decoder; presence does not establish runtime behavior. Manifest decoded as UTF-8. No target loading/execution.",
+  "artifacts": [
+    {
+      "path": "C:\\Users\\MSI GF63 Thin\\Downloads\\RAMMap\\RAMMap.exe",
+      "sha256": "9200237404fc7936ed5854d904907f0ab9a4c689f38f98b49d30599a5498c84d",
+      "parent_evidence_id": "ev_b4085bb6d682c77d584ba398ed9e2f0807a82f6cff4e97fedffc5d1793e54183",
+      "machine": "0x14c",
+      "sections": [
+        {
+          "name": ".text",
+          "rva": 4096,
+          "virtual_size": 197100,
+          "raw_bytes": 197120,
+          "offset": 1024
+        },
+        {
+          "name": ".rdata",
+          "rva": 204800,
+          "virtual_size": 76878,
+          "raw_bytes": 77312,
+          "offset": 198144
+        },
+        {
+          "name": ".data",
+          "rva": 282624,
+          "virtual_size": 7528,
+          "raw_bytes": 3584,
+          "offset": 275456
+        },
+        {
+          "name": ".rsrc",
+          "rva": 290816,
+          "virtual_size": 377544,
+          "raw_bytes": 377856,
+          "offset": 279040
+        },
+        {
+          "name": ".reloc",
+          "rva": 671744,
+          "virtual_size": 10432,
+          "raw_bytes": 10752,
+          "offset": 656896
+        }
+      ],
+      "imports": [
+        {
+          "dll": "COMCTL32.dll",
+          "symbols": [
+            "ImageList_DrawEx",
+            "ImageList_Destroy",
+            "InitCommonControlsEx",
+            "ImageList_SetImageCount",
+            "#ordinal:17",
+            "ImageList_Add",
+            "ImageList_SetBkColor",
+            "ImageList_ReplaceIcon",
+            "ImageList_Create"
+          ]
+        },
+        {
+          "dll": "VERSION.dll",
+          "symbols": [
+            "GetFileVersionInfoW",
+            "VerQueryValueW",
+            "GetFileVersionInfoSizeW"
+          ]
+        },
+        {
+          "dll": "KERNEL32.dll",
+          "symbols": [
+            "SetEndOfFile",
+            "HeapSize",
+            "ReadFile",
+            "FlushFileBuffers",
+            "GetStringTypeW",
+            "SetStdHandle",
+            "FreeEnvironmentStringsW",
+            "GetEnvironmentStringsW",
+            "GetCommandLineA",
+            "GetCPInfo",
+            "GetOEMCP",
+            "GetACP",
+            "IsValidCodePage",
+            "FindNextFileW",
+            "FindFirstFileExW",
+            "FindClose",
+            "DecodePointer",
+            "HeapReAlloc",
+            "ReadConsoleW",
+            "ReadConsoleInputW",
+            "SetConsoleMode",
+            "CreateFileW",
+            "LCMapStringW",
+            "SetFilePointerEx",
+            "GetFileSizeEx",
+            "GetConsoleMode",
+            "GetConsoleOutputCP",
+            "WriteFile",
+            "GetConsoleCP",
+            "GetModuleHandleExW",
+            "TlsFree",
+            "TlsSetValue",
+            "TlsGetValue",
+            "TlsAlloc",
+            "EncodePointer",
+            "RtlUnwind",
+            "FreeLibrary",
+            "VirtualQuery",
+            "GetProcessHeap",
+            "HeapFree",
+            "HeapAlloc",
+            "WideCharToMultiByte",
+            "RaiseException",
+            "InitializeSListHead",
+            "GetSystemTimeAsFileTime",
+            "GetCurrentThreadId",
+            "GetCurrentProcessId",
+            "QueryPerformanceCounter",
+            "GetStartupInfoW",
+            "IsDebuggerPresent",
+            "CreateEventW",
+            "WaitForSingleObjectEx",
+            "ResetEvent",
+            "SetEvent",
+            "DeleteCriticalSection",
+            "InitializeCriticalSectionAndSpinCount",
+            "LeaveCriticalSection",
+            "EnterCriticalSection",
+            "IsProcessorFeaturePresent",
+            "TerminateProcess",
+            "SetUnhandledExceptionFilter",
+            "UnhandledExceptionFilter",
+            "ExpandEnvironmentStringsW",
+            "GetCurrentDirectoryW",
+            "DeleteFileW",
+            "GetFileAttributesW",
+            "SetFileAttributesW",
+            "CloseHandle",
+            "GetLastError",
+            "WaitForSingleObject",
+            "Sleep",
+            "GetCurrentProcess",
+            "CreateProcessW",
+            "GlobalAddAtomW",
+            "GetComputerNameW",
+            "FormatMessageW",
+            "ExitProcess",
+            "OpenProcess",
+            "DeviceIoControl",
+            "OutputDebugStringW",
+            "QueryDosDeviceW",
+            "GetNumberFormatW",
+            "VerifyVersionInfoW",
+            "GetVersion",
+            "VerSetConditionMask",
+            "GetLocaleInfoW",
+            "LocalFree",
+            "LocalAlloc",
+            "GetFileType",
+            "GetCommandLineW",
+            "GetStdHandle",
+            "LoadLibraryExW",
+            "GetVersionExW",
+            "FindResourceW",
+            "SetLastError",
+            "MultiByteToWideChar",
+            "GlobalFree",
+            "GlobalLock",
+            "GlobalUnlock",
+            "GlobalAlloc",
+            "WriteConsoleW",
+            "SizeofResource",
+            "LockResource",
+            "LoadResource",
+            "GetProcAddress",
+            "GetModuleHandleW",
+            "GetModuleFileNameW"
+          ]
+        },
+        {
+          "dll": "USER32.dll",
+          "symbols": [
+            "SetWindowTextW",
+            "InflateRect",
+            "GetSysColorBrush",
+            "LoadCursorW",
+            "DefWindowProcW",
+            "CreateWindowExW",
+            "SetScrollInfo",
+            "GetScrollInfo",
+            "GetParent",
+            "InvalidateRect",
+            "GetDlgItem",
+            "EndDialog",
+            "DialogBoxIndirectParamW",
+            "SendMessageW",
+            "DrawEdge",
+            "ShowWindow",
+            "SetCursor",
+            "IntersectRect",
+            "ScrollWindowEx",
+            "GetUpdateRgn",
+            "DrawTextW",
+            "SetCapture",
+            "GetCapture",
+            "GetKeyState",
+            "IsDialogMessageW",
+            "GetClassNameW",
+            "EnumChildWindows",
+            "GetClassLongW",
+            "SetWindowLongW",
+            "OffsetRect",
+            "UnionRect",
+            "GetSysColor",
+            "ChildWindowFromPoint",
+            "MapWindowPoints",
+            "ScreenToClient",
+            "InvalidateRgn",
+            "TranslateAcceleratorW",
+            "LoadAcceleratorsW",
+            "EnableWindow",
+            "ReleaseCapture",
+            "SetFocus",
+            "DefDlgProcW",
+            "SetDlgItemTextW",
+            "DialogBoxParamW",
+            "CreateDialogParamW",
+            "IsZoomed",
+            "EndDeferWindowPos",
+            "DeferWindowPos",
+            "BeginDeferWindowPos",
+            "SetWindowPlacement",
+            "GetWindowPlacement",
+            "MoveWindow",
+            "DestroyWindow",
+            "IsChild",
+            "RegisterClassExW",
+            "CallWindowProcW",
+            "PostQuitMessage",
+            "PostMessageW",
+            "DispatchMessageW",
+            "TranslateMessage",
+            "GetMessageW",
+            "DrawFrameControl",
+            "RegisterWindowMessageW",
+            "LoadImageW",
+            "LoadIconW",
+            "GetWindowLongW",
+            "PtInRect",
+            "GetWindowRect",
+            "UpdateWindow",
+            "GetSystemMetrics",
+            "LoadStringW",
+            "FillRect",
+            "DrawFocusRect",
+            "GetClientRect",
+            "GetPropW",
+            "SetPropW",
+            "EndPaint",
+            "BeginPaint",
+            "ReleaseDC",
+            "GetDC",
+            "GetFocus",
+            "SetWindowPos",
+            "MessageBoxW"
+          ]
+        },
+        {
+          "dll": "GDI32.dll",
+          "symbols": [
+            "Polyline",
+            "GetTextMetricsW",
+            "SelectClipRgn",
+            "RectInRegion",
+            "GetBkColor",
+            "CreateRectRgnIndirect",
+            "CreateRectRgn",
+            "CreatePen",
+            "BitBlt",
+            "GetObjectW",
+            "SetBkMode",
+            "CreateFontIndirectW",
+            "SelectObject",
+            "DeleteDC",
+            "CreateCompatibleDC",
+            "CreateCompatibleBitmap",
+            "DeleteObject",
+            "CreateSolidBrush",
+            "EndPage",
+            "StartPage",
+            "EndDoc",
+            "StartDocW",
+            "SetMapMode",
+            "GetDeviceCaps",
+            "ExtTextOutW",
+            "SetTextColor",
+            "SetBkColor",
+            "GetTextExtentPoint32W",
+            "GetStockObject"
+          ]
+        },
+        {
+          "dll": "COMDLG32.dll",
+          "symbols": [
+            "FindTextW",
+            "GetSaveFileNameW",
+            "GetOpenFileNameW",
+            "PrintDlgW",
+            "ChooseColorW"
+          ]
+        },
+        {
+          "dll": "ADVAPI32.dll",
+          "symbols": [
+            "RegSetValueW",
+            "RegSetValueExW",
+            "RegCreateKeyW",
+            "RegEnumValueW",
+            "RegOpenKeyExW",
+            "RegQueryValueExW",
+            "OpenProcessToken",
+            "AdjustTokenPrivileges",
+            "LookupPrivilegeValueW",
+            "RegCreateKeyExW",
+            "RegCloseKey",
+            "RegDeleteKeyW",
+            "StartServiceW",
+            "QueryServiceStatusEx",
+            "OpenServiceW",
+            "OpenSCManagerW",
+            "ControlService",
+            "CloseServiceHandle",
+            "RegEnumKeyW",
+            "RegOpenKeyW"
+          ]
+        },
+        {
+          "dll": "SHELL32.dll",
+          "symbols": [
+            "SHChangeNotify",
+            "ShellExecuteW",
+            "CommandLineToArgvW"
+          ]
+        },
+        {
+          "dll": "ole32.dll",
+          "symbols": [
+            "CoCreateInstance",
+            "CoInitialize"
+          ]
+        },
+        {
+          "dll": "OLEAUT32.dll",
+          "symbols": [
+            "#ordinal:12",
+            "#ordinal:9",
+            "#ordinal:8",
+            "#ordinal:150",
+            "#ordinal:7",
+            "#ordinal:6",
+            "#ordinal:2"
+          ]
+        }
+      ],
+      "resources": [
+        {
+          "index": 0,
+          "type": "BINRES",
+          "name": "RCRAMMAP64",
+          "language": 1033,
+          "offset": 293688,
+          "bytes": 362896,
+          "sha256": "f80852a5ab710dde6489760b3fba6907ba63a7d9704dd2fc58b387c472541bf0",
+          "utf16_ascii_runs": [],
+          "prefix_hex": "4d5a90000300000004000000ffff0000b800000000000000"
+        },
+        {
+          "index": 1,
+          "type": 1,
+          "name": 4,
+          "language": 1033,
+          "offset": 291296,
+          "bytes": 308,
+          "sha256": "5f1680788b84b19e5d22b57a0f89dd9d0bee8924197eacdec9395a3af6aace1d",
+          "utf16_ascii_runs": []
+        },
+        {
+          "index": 2,
+          "type": 3,
+          "name": 1,
+          "language": 1033,
+          "offset": 286544,
+          "bytes": 296,
+          "sha256": "2c1b37ecb2cc37d79c92d0b05fa0d40b5adb2f1f14390b27a420e98d3c31b383",
+          "utf16_ascii_runs": []
+        },
+        {
+          "index": 3,
+          "type": 3,
+          "name": 2,
+          "language": 1033,
+          "offset": 286864,
+          "bytes": 296,
+          "sha256": "22ce584d044ac7c47ba83cb1477b63b57deda58d8e14fc88f8c901fee083bb6f",
+          "utf16_ascii_runs": []
+        },
+        {
+          "index": 4,
+          "type": 3,
+          "name": 3,
+          "language": 1033,
+          "offset": 287184,
+          "bytes": 3240,
+          "sha256": "045dd3779a2510c3f4b8e9888771ce845771cdab5c0ff149693a853440795ded",
+          "utf16_ascii_runs": []
+        },
+        {
+          "index": 5,
+          "type": 4,
+          "name": "MAIN_MENU",
+          "language": 1033,
+          "offset": 286016,
+          "bytes": 522,
+          "sha256": "e1634871e9afe3d3836ccb7dfc8135ff42597da4d26e8d6e5ec009392d9b28fc",
+          "utf16_ascii_runs": [
+            {
+              "offset": 286022,
+              "text": "&File"
+            },
+            {
+              "offset": 286038,
+              "text": "Open..."
+            },
+            {
+              "offset": 286058,
+              "text": "Save..."
+            },
+            {
+              "offset": 286084,
+              "text": "&Find"
+            },
+            {
+              "offset": 286096,
+              "text": "Ctrl+F"
+            },
+            {
+              "offset": 286120,
+              "text": "Refresh"
+            },
+            {
+              "offset": 286152,
+              "text": "E&xit"
+            },
+            {
+              "offset": 286166,
+              "text": "&Empty"
+            },
+            {
+              "offset": 286184,
+              "text": "Empty &Working Sets"
+            },
+            {
+              "offset": 286228,
+              "text": "Empty &System Working Set"
+            },
+            {
+              "offset": 286284,
+              "text": "Empty &Modified Page List"
+            },
+            {
+              "offset": 286340,
+              "text": "Empty S&tandby List"
+            },
+            {
+              "offset": 286384,
+              "text": "Empty Priority 0 Standby &List"
+            },
+            {
+              "offset": 286448,
+              "text": "&Settings"
+            },
+            {
+              "offset": 286472,
+              "text": "&Colors"
+            },
+            {
+              "offset": 286490,
+              "text": "&Help"
+            },
+            {
+              "offset": 286506,
+              "text": "&Usage"
+            },
+            {
+              "offset": 286524,
+              "text": "&About"
+            }
+          ]
+        },
+        {
+          "index": 6,
+          "type": 5,
+          "name": "ABOUT",
+          "language": 1033,
+          "offset": 280944,
+          "bytes": 866,
+          "sha256": "670f0179dc66f0d840111faedc552693591cccafdd44df18c0206a428bc2d7d4",
+          "utf16_ascii_runs": [
+            {
+              "offset": 280974,
+              "text": "About RamMap"
+            },
+            {
+              "offset": 281006,
+              "text": "MS Shell Dlg"
+            },
+            {
+              "offset": 281060,
+              "text": "APPICON"
+            },
+            {
+              "offset": 281108,
+              "text": "RamMap v"
+            },
+            {
+              "offset": 281196,
+              "text": "Sysinternals - www.sysinternals.com"
+            },
+            {
+              "offset": 281300,
+              "text": "Copyright"
+            },
+            {
+              "offset": 281392,
+              "text": "Portions based on code by Alex Ionescu"
+            },
+            {
+              "offset": 281500,
+              "text": "and usage types presented by RAMMap."
+            },
+            {
+              "offset": 281604,
+              "text": "Windows Internals"
+            },
+            {
+              "offset": 281672,
+              "text": "for a complete description of the memory labels"
+            }
+          ]
+        },
+        {
+          "index": 7,
+          "type": 5,
+          "name": "ADD_DIALOG",
+          "language": 1033,
+          "offset": 281816,
+          "bytes": 344,
+          "sha256": "029e070b0dd6e60e0f4511944133b2a4d4e43fa732ccd4cd5bb690b19595d594",
+          "utf16_ascii_runs": [
+            {
+              "offset": 281846,
+              "text": "Add Signature"
+            },
+            {
+              "offset": 281880,
+              "text": "MS Shell Dlg"
+            },
+            {
+              "offset": 281972,
+              "text": "Cancel"
+            },
+            {
+              "offset": 282048,
+              "text": "File Name:"
+            },
+            {
+              "offset": 282132,
+              "text": "Description:"
+            }
+          ]
+        },
+        {
+          "index": 8,
+          "type": 5,
+          "name": "LISTVIEWFILTER_TAB",
+          "language": 1033,
+          "offset": 282280,
+          "bytes": 266,
+          "sha256": "f1df801612644e86894e1661814c5a202e74bebe4226d34174981dd9fc8ada07",
+          "utf16_ascii_runs": [
+            {
+              "offset": 282318,
+              "text": "MS Shell Dlg"
+            },
+            {
+              "offset": 282368,
+              "text": "SysListView32"
+            },
+            {
+              "offset": 282528,
+              "text": "Filter:"
+            }
+          ]
+        },
+        {
+          "index": 9,
+          "type": 5,
+          "name": "LISTVIEWGRAPH_TAB",
+          "language": 1033,
+          "offset": 282552,
+          "bytes": 184,
+          "sha256": "6c1fb1abde75c8ca56f653ff110aac12d13c04fdf1c624018d539c3b076694b0",
+          "utf16_ascii_runs": [
+            {
+              "offset": 282590,
+              "text": "MS Shell Dlg"
+            },
+            {
+              "offset": 282640,
+              "text": "SysListView32"
+            }
+          ]
+        },
+        {
+          "index": 10,
+          "type": 5,
+          "name": "LISTVIEW_TAB",
+          "language": 1033,
+          "offset": 282160,
+          "bytes": 120,
+          "sha256": "9ada4a34fbd6882caddd3c135393509172e4fdbbc7137b61ff25c6709aa22803",
+          "utf16_ascii_runs": [
+            {
+              "offset": 282198,
+              "text": "MS Shell Dlg"
+            },
+            {
+              "offset": 282248,
+              "text": "SysListView32"
+            }
+          ]
+        },
+        {
+          "index": 11,
+          "type": 5,
+          "name": "MAIN_WINDOW",
+          "language": 1033,
+          "offset": 280688,
+          "bytes": 252,
+          "sha256": "04d6dc5b2c6f17d4d0b3e7c3e71b92279dcc62db162fda502e00f2ef4c38782a",
+          "utf16_ascii_runs": [
+            {
+              "offset": 280714,
+              "text": "MAIN_MENU"
+            },
+            {
+              "offset": 280734,
+              "text": "RamMapClass"
+            },
+            {
+              "offset": 280758,
+              "text": "RamMap - Sysinternals: www.sysinternals.com"
+            },
+            {
+              "offset": 280852,
+              "text": "MS Shell Dlg"
+            },
+            {
+              "offset": 280904,
+              "text": "SysTabControl32"
+            }
+          ]
+        },
+        {
+          "index": 12,
+          "type": 5,
+          "name": "SUMMARY_TAB",
+          "language": 1033,
+          "offset": 282736,
+          "bytes": 1680,
+          "sha256": "c0960b5ae03c1891e595450bd0e317df105982eb8a64f87341a1c1675d87fefd",
+          "utf16_ascii_runs": [
+            {
+              "offset": 282774,
+              "text": "MS Shell Dlg"
+            },
+            {
+              "offset": 282860,
+              "text": "Label:"
+            },
+            {
+              "offset": 282904,
+              "text": "Label:"
+            },
+            {
+              "offset": 282948,
+              "text": "Label:"
+            },
+            {
+              "offset": 282992,
+              "text": "Label:"
+            },
+            {
+              "offset": 283036,
+              "text": "Label:"
+            },
+            {
+              "offset": 283080,
+              "text": "Label:"
+            },
+            {
+              "offset": 283124,
+              "text": "Label:"
+            },
+            {
+              "offset": 283168,
+              "text": "Label:"
+            },
+            {
+              "offset": 283212,
+              "text": "Label:"
+            },
+            {
+              "offset": 283256,
+              "text": "Label:"
+            },
+            {
+              "offset": 283300,
+              "text": "Label:"
+            },
+            {
+              "offset": 283344,
+              "text": "Label:"
+            },
+            {
+              "offset": 283388,
+              "text": "123456789 K"
+            },
+            {
+              "offset": 283444,
+              "text": "123456789 K"
+            },
+            {
+              "offset": 283500,
+              "text": "123456789 K"
+            },
+            {
+              "offset": 283556,
+              "text": "123456789 K"
+            },
+            {
+              "offset": 283612,
+              "text": "123456789 K"
+            },
+            {
+              "offset": 283668,
+              "text": "123456789 K"
+            },
+            {
+              "offset": 283724,
+              "text": "123456789 K"
+            },
+            {
+              "offset": 283780,
+              "text": "123456789 K"
+            },
+            {
+              "offset": 283836,
+              "text": "123456789 K"
+            },
+            {
+              "offset": 283892,
+              "text": "123456789 K"
+            },
+            {
+              "offset": 283948,
+              "text": "123456789 K"
+            },
+            {
+              "offset": 284004,
+              "text": "123456789 K"
+            }
+          ]
+        },
+        {
+          "index": 13,
+          "type": 5,
+          "name": "TREELIST_TAB",
+          "language": 1033,
+          "offset": 284416,
+          "bytes": 120,
+          "sha256": "92764e2538669f6d278c8fde067364adb0354e2674a38f13c081778c4ccb28b8",
+          "utf16_ascii_runs": [
+            {
+              "offset": 284454,
+              "text": "MS Shell Dlg"
+            },
+            {
+              "offset": 284504,
+              "text": "SysTreeView32"
+            }
+          ]
+        },
+        {
+          "index": 14,
+          "type": 5,
+          "name": "USAGE",
+          "language": 1033,
+          "offset": 284536,
+          "bytes": 1478,
+          "sha256": "f00159a3ba4860ca5e3bd9c1cee33e5661ade02f0f7577a25f9d296965c01716",
+          "utf16_ascii_runs": [
+            {
+              "offset": 284566,
+              "text": "RAMMap Usage"
+            },
+            {
+              "offset": 284598,
+              "text": "MS Shell Dlg"
+            },
+            {
+              "offset": 284688,
+              "text": "Usage: Rammap [[outputfile] | [[-run32] -o <inputfile.rmp>]]"
+            },
+            {
+              "offset": 284840,
+              "text": "inputfile"
+            },
+            {
+              "offset": 284892,
+              "text": "Has RAMMap open the specified log file."
+            },
+            {
+              "offset": 285004,
+              "text": "outputfile"
+            },
+            {
+              "offset": 285056,
+              "text": "Has RAMMap dump scan output to a file and exit."
+            },
+            {
+              "offset": 285184,
+              "text": "Run32"
+            },
+            {
+              "offset": 285228,
+              "text": "Launch the 32-bit RAMMap on 64-bit Windows."
+            },
+            {
+              "offset": 285348,
+              "text": "Command line mode: Rammap -E[wsmt0]"
+            },
+            {
+              "offset": 285652,
+              "text": "Empty Working Sets"
+            },
+            {
+              "offset": 285720,
+              "text": "Empty System Working Sets"
+            },
+            {
+              "offset": 285804,
+              "text": "Empty Modified Page List"
+            },
+            {
+              "offset": 285884,
+              "text": "Empty Standby List"
+            },
+            {
+              "offset": 285952,
+              "text": "Empty Priority 0 standby List"
+            }
+          ]
+        },
+        {
+          "index": 15,
+          "type": 9,
+          "name": "ACCELERATORS",
+          "language": 1033,
+          "offset": 291240,
+          "bytes": 56,
+          "sha256": "6fbd636fda823073663722e4cd990f577a48981ead1cb10291694d1d7d94d81c",
+          "utf16_ascii_runs": []
+        },
+        {
+          "index": 16,
+          "type": 12,
+          "name": "HAND",
+          "language": 1033,
+          "offset": 291608,
+          "bytes": 20,
+          "sha256": "ff47a48c11c234903a7d625cb8b62101909f735ad84266c98dd4834549452c39",
+          "utf16_ascii_runs": []
+        },
+        {
+          "index": 17,
+          "type": 14,
+          "name": "APPICON",
+          "language": 1033,
+          "offset": 290424,
+          "bytes": 20,
+          "sha256": "dc4d6703cb02352065d368c17c29c2997969323e97ed2e8ba0aac9889417cc24",
+          "utf16_ascii_runs": []
+        },
+        {
+          "index": 18,
+          "type": 14,
+          "name": 107,
+          "language": 1033,
+          "offset": 286840,
+          "bytes": 20,
+          "sha256": "ae172a9a2fd008910b537c92a95b38bfba0e5bbdaaca719bf686e6415a7a2ba1",
+          "utf16_ascii_runs": []
+        },
+        {
+          "index": 19,
+          "type": 14,
+          "name": 108,
+          "language": 1033,
+          "offset": 287160,
+          "bytes": 20,
+          "sha256": "6bcce1250099cc08d574211b3debabb0244cd2641f6d960538e7ddc97d319164",
+          "utf16_ascii_runs": []
+        },
+        {
+          "index": 20,
+          "type": 16,
+          "name": 1,
+          "language": 1033,
+          "offset": 290448,
+          "bytes": 792,
+          "sha256": "6953e6dc24917464f0279119a291d3fee46dccba9dd63d1fc2858cc31d022c56",
+          "utf16_ascii_runs": [
+            {
+              "offset": 290454,
+              "text": "VS_VERSION_INFO"
+            },
+            {
+              "offset": 290546,
+              "text": "StringFileInfo"
+            },
+            {
+              "offset": 290582,
+              "text": "040904b0"
+            },
+            {
+              "offset": 290606,
+              "text": "CompanyName"
+            },
+            {
+              "offset": 290632,
+              "text": "Sysinternals - www.sysinternals.com"
+            },
+            {
+              "offset": 290710,
+              "text": "FileDescription"
+            },
+            {
+              "offset": 290744,
+              "text": "RamMap - physical memory analyzer"
+            },
+            {
+              "offset": 290818,
+              "text": "FileVersion"
+            },
+            {
+              "offset": 290844,
+              "text": "1.61"
+            },
+            {
+              "offset": 290862,
+              "text": "InternalName"
+            },
+            {
+              "offset": 290888,
+              "text": "RamMap"
+            },
+            {
+              "offset": 290910,
+              "text": "LegalCopyright"
+            },
+            {
+              "offset": 290940,
+              "text": "Copyright "
+            },
+            {
+              "offset": 290962,
+              "text": " 2010-2022 Mark Russinovich"
+            },
+            {
+              "offset": 291026,
+              "text": "OriginalFilename"
+            },
+            {
+              "offset": 291060,
+              "text": "RamMap"
+            },
+            {
+              "offset": 291082,
+              "text": "ProductName"
+            },
+            {
+              "offset": 291108,
+              "text": "RamMap"
+            },
+            {
+              "offset": 291130,
+              "text": "ProductVersion"
+            },
+            {
+              "offset": 291160,
+              "text": "1.61"
+            },
+            {
+              "offset": 291178,
+              "text": "VarFileInfo"
+            },
+            {
+              "offset": 291210,
+              "text": "Translation"
+            }
+          ]
+        },
+        {
+          "index": 21,
+          "type": 24,
+          "name": 1,
+          "language": 1033,
+          "offset": 291632,
+          "bytes": 2052,
+          "sha256": "651cb737386ad215cda8e681c265abce2f676ffc5b90329df9737776ed773b07",
+          "utf16_ascii_runs": [],
+          "manifest_utf8": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\r\n<assembly\r\n    xmlns=\"urn:schemas-microsoft-com:asm.v1\"\r\n    manifestVersion=\"1.0\">\r\n    <assemblyIdentity\r\n        type=\"win32\"\r\n        name=\"RamMap\"\r\n        version=\"1.0.0.0\"/>\r\n    <dependency>\r\n        <dependentAssembly>\r\n            <assemblyIdentity\r\n                type=\"win32\"\r\n                name=\"Microsoft.Windows.Common-Controls\"\r\n                version=\"6.0.0.0\"\r\n                processorArchitecture=\"*\"\r\n                publicKeyToken=\"6595b64144ccf1df\"/>\r\n        </dependentAssembly>\r\n    </dependency>\r\n    <trustInfo xmlns=\"urn:schemas-microsoft-com:asm.v2\">\r\n        <security>\r\n            <requestedPrivileges>\r\n                <requestedExecutionLevel\r\n                    level=\"requireAdministrator\"\r\n                    uiAccess=\"false\"/>\r\n            </requestedPrivileges>\r\n        </security>\r\n    </trustInfo>\r\n    <compatibility xmlns=\"urn:schemas-microsoft-com:compatibility.v1\">\r\n        <application>\r\n            <!-- Windows Vista -->\r\n            <supportedOS Id=\"{e2011457-1546-43c5-a5fe-008deee3d3f0}\"/>\r\n            <!-- Windows 7 -->\r\n            <supportedOS Id=\"{35138b9a-5d96-4fbd-8e2d-a2440225f93a}\"/>\r\n            <!-- Windows 8 -->\r\n            <supportedOS Id=\"{4a2f28e3-53b9-4441-ba9c-d69d4a4a6e38}\"/>\r\n            <!-- Windows 8.1 -->\r\n            <supportedOS Id=\"{1f676c76-80e1-4239-95bb-83d0f6d0da78}\"/>\r\n            <!-- Windows 10 -->\r\n            <supportedOS Id=\"{8e0f7a12-bfb3-4fe8-b9a5-48fd50a15a9a}\"/>\r\n        </application>\r\n    </compatibility>\r\n    <application xmlns=\"urn:schemas-microsoft-com:asm.v3\">\r\n        <windowsSettings>\r\n            <dpiAware xmlns=\"http://schemas.microsoft.com/SMI/2005/WindowsSettings\">true</dpiAware>\r\n            <dpiAwareness xmlns=\"http://schemas.microsoft.com/SMI/2016/WindowsSettings\">PerMonitorV2, system</dpiAwareness>\r\n            <gdiScaling xmlns=\"http://schemas.microsoft.com/SMI/2017/WindowsSettings\">true</gdiScaling>\r\n        </windowsSettings>\r\n    </application>\r\n</assembly>\r\n"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\MSI GF63 Thin\\Downloads\\RAMMap\\RAMMap64a.exe",
+      "sha256": "9d110b7af0f89899bd6c8e7b3d7e689dd1e0f5471ad7aef03e8288ba169f4de3",
+      "parent_evidence_id": "ev_eff2a7ec10b3493c9f1d7ea0a2802b4db55b274ffd539e7bcf587ad51552b2e2",
+      "machine": "0xaa64",
+      "sections": [
+        {
+          "name": ".text",
+          "rva": 4096,
+          "virtual_size": 241144,
+          "raw_bytes": 241152,
+          "offset": 1024
+        },
+        {
+          "name": ".rdata",
+          "rva": 245760,
+          "virtual_size": 97990,
+          "raw_bytes": 98304,
+          "offset": 242176
+        },
+        {
+          "name": ".data",
+          "rva": 344064,
+          "virtual_size": 10828,
+          "raw_bytes": 4096,
+          "offset": 340480
+        },
+        {
+          "name": ".pdata",
+          "rva": 356352,
+          "virtual_size": 7456,
+          "raw_bytes": 7680,
+          "offset": 344576
+        },
+        {
+          "name": ".rsrc",
+          "rva": 364544,
+          "virtual_size": 14536,
+          "raw_bytes": 14848,
+          "offset": 352256
+        },
+        {
+          "name": ".reloc",
+          "rva": 380928,
+          "virtual_size": 2204,
+          "raw_bytes": 2560,
+          "offset": 367104
+        }
+      ],
+      "imports": [
+        {
+          "dll": "COMCTL32.dll",
+          "symbols": [
+            "ImageList_ReplaceIcon",
+            "ImageList_SetBkColor",
+            "ImageList_Add",
+            "#ordinal:17",
+            "ImageList_SetImageCount",
+            "ImageList_DrawEx",
+            "ImageList_Destroy",
+            "InitCommonControlsEx",
+            "ImageList_Create"
+          ]
+        },
+        {
+          "dll": "VERSION.dll",
+          "symbols": [
+            "GetFileVersionInfoSizeW",
+            "GetFileVersionInfoW",
+            "VerQueryValueW"
+          ]
+        },
+        {
+          "dll": "GDI32.dll",
+          "symbols": [
+            "GetBkColor",
+            "RectInRegion",
+            "SelectClipRgn",
+            "GetTextMetricsW",
+            "Polyline",
+            "GetStockObject",
+            "CreateRectRgn",
+            "CreatePen",
+            "BitBlt",
+            "GetObjectW",
+            "SetBkMode",
+            "CreateFontIndirectW",
+            "SelectObject",
+            "DeleteDC",
+            "CreateCompatibleDC",
+            "CreateCompatibleBitmap",
+            "DeleteObject",
+            "CreateSolidBrush",
+            "EndPage",
+            "StartPage",
+            "EndDoc",
+            "StartDocW",
+            "SetMapMode",
+            "GetDeviceCaps",
+            "ExtTextOutW",
+            "SetTextColor",
+            "SetBkColor",
+            "GetTextExtentPoint32W",
+            "CreateRectRgnIndirect"
+          ]
+        },
+        {
+          "dll": "ADVAPI32.dll",
+          "symbols": [
+            "OpenServiceW",
+            "RegOpenKeyW",
+            "RegSetValueExW",
+            "RegCreateKeyW",
+            "RegEnumValueW",
+            "RegOpenKeyExW",
+            "RegQueryValueExW",
+            "OpenProcessToken",
+            "AdjustTokenPrivileges",
+            "LookupPrivilegeValueW",
+            "RegCreateKeyExW",
+            "RegDeleteKeyW",
+            "RegEnumKeyW",
+            "RegSetValueW",
+            "RegGetValueW",
+            "CloseServiceHandle",
+            "ControlService",
+            "StartServiceW",
+            "QueryServiceStatusEx",
+            "RegCloseKey",
+            "OpenSCManagerW"
+          ]
+        },
+        {
+          "dll": "SHELL32.dll",
+          "symbols": [
+            "CommandLineToArgvW",
+            "ShellExecuteW",
+            "SHChangeNotify"
+          ]
+        },
+        {
+          "dll": "COMDLG32.dll",
+          "symbols": [
+            "GetOpenFileNameW",
+            "PrintDlgW",
+            "ChooseColorW",
+            "GetSaveFileNameW",
+            "FindTextW"
+          ]
+        },
+        {
+          "dll": "KERNEL32.dll",
+          "symbols": [
+            "SetStdHandle",
+            "GetStringTypeW",
+            "ReadFile",
+            "HeapSize",
+            "SetEndOfFile",
+            "WriteConsoleW",
+            "FlushFileBuffers",
+            "ExpandEnvironmentStringsW",
+            "GetCurrentDirectoryW",
+            "DeleteFileW",
+            "GetFileAttributesW",
+            "SetFileAttributesW",
+            "CloseHandle",
+            "GetLastError",
+            "WaitForSingleObject",
+            "Sleep",
+            "GetCurrentProcess",
+            "CreateProcessW",
+            "GetModuleFileNameW",
+            "GetModuleHandleW",
+            "GetProcAddress",
+            "LoadResource",
+            "LockResource",
+            "SizeofResource",
+            "FindResourceW",
+            "GlobalAlloc",
+            "GlobalUnlock",
+            "GlobalLock",
+            "GlobalFree",
+            "MultiByteToWideChar",
+            "SetLastError",
+            "GetVersionExW",
+            "LoadLibraryExW",
+            "GetStdHandle",
+            "GetCommandLineW",
+            "GetFileType",
+            "LocalAlloc",
+            "LocalFree",
+            "GetLocaleInfoW",
+            "VerSetConditionMask",
+            "GetVersion",
+            "VerifyVersionInfoW",
+            "GetNumberFormatW",
+            "QueryDosDeviceW",
+            "OutputDebugStringW",
+            "DeviceIoControl",
+            "OpenProcess",
+            "ExitProcess",
+            "FormatMessageW",
+            "GetComputerNameW",
+            "GlobalAddAtomW",
+            "FreeEnvironmentStringsW",
+            "GetEnvironmentStringsW",
+            "GetCommandLineA",
+            "GetCPInfo",
+            "GetOEMCP",
+            "GetACP",
+            "IsValidCodePage",
+            "FindNextFileW",
+            "FindFirstFileExW",
+            "FindClose",
+            "HeapReAlloc",
+            "ReadConsoleW",
+            "ReadConsoleInputW",
+            "SetConsoleMode",
+            "CreateFileW",
+            "LCMapStringW",
+            "TlsFree",
+            "TlsSetValue",
+            "TlsGetValue",
+            "TlsAlloc",
+            "InitializeCriticalSectionAndSpinCount",
+            "SetFilePointerEx",
+            "GetFileSizeEx",
+            "GetConsoleMode",
+            "GetConsoleOutputCP",
+            "WriteFile",
+            "GetConsoleCP",
+            "GetModuleHandleExW",
+            "TerminateProcess",
+            "DeleteCriticalSection",
+            "InitializeCriticalSectionEx",
+            "LeaveCriticalSection",
+            "EnterCriticalSection",
+            "EncodePointer",
+            "FlsFree",
+            "FlsSetValue",
+            "FlsGetValue",
+            "FlsAlloc",
+            "RtlUnwindEx",
+            "RtlLookupFunctionEntry",
+            "RtlPcToFileHeader",
+            "FreeLibrary",
+            "GetProcessHeap",
+            "HeapFree",
+            "HeapAlloc",
+            "WideCharToMultiByte",
+            "RaiseException",
+            "InitializeSListHead",
+            "GetSystemTimeAsFileTime",
+            "GetCurrentThreadId",
+            "GetCurrentProcessId",
+            "QueryPerformanceCounter",
+            "GetStartupInfoW",
+            "SetUnhandledExceptionFilter",
+            "SleepConditionVariableSRW",
+            "WakeAllConditionVariable",
+            "AcquireSRWLockExclusive",
+            "ReleaseSRWLockExclusive"
+          ]
+        },
+        {
+          "dll": "USER32.dll",
+          "symbols": [
+            "IntersectRect",
+            "GetScrollInfo",
+            "SetScrollInfo",
+            "ScrollWindowEx",
+            "GetUpdateRgn",
+            "DrawTextW",
+            "SetCapture",
+            "GetCapture",
+            "GetKeyState",
+            "IsDialogMessageW",
+            "GetClassNameW",
+            "EnumChildWindows",
+            "GetClassLongW",
+            "GetClassLongPtrW",
+            "GetWindowLongPtrW",
+            "OffsetRect",
+            "UnionRect",
+            "GetSysColor",
+            "ChildWindowFromPoint",
+            "MapWindowPoints",
+            "ScreenToClient",
+            "InvalidateRgn",
+            "TranslateAcceleratorW",
+            "LoadAcceleratorsW",
+            "EnableWindow",
+            "ReleaseCapture",
+            "SetFocus",
+            "DefDlgProcW",
+            "SetDlgItemTextW",
+            "DialogBoxParamW",
+            "CreateDialogParamW",
+            "IsZoomed",
+            "EndDeferWindowPos",
+            "DeferWindowPos",
+            "BeginDeferWindowPos",
+            "SetWindowPlacement",
+            "GetWindowPlacement",
+            "MoveWindow",
+            "DestroyWindow",
+            "IsChild",
+            "RegisterClassExW",
+            "CallWindowProcW",
+            "PostQuitMessage",
+            "PostMessageW",
+            "DispatchMessageW",
+            "TranslateMessage",
+            "GetMessageW",
+            "DrawFrameControl",
+            "RegisterWindowMessageW",
+            "LoadImageW",
+            "LoadIconW",
+            "GetWindowLongW",
+            "PtInRect",
+            "GetWindowRect",
+            "GetSystemMetrics",
+            "LoadStringW",
+            "FillRect",
+            "DrawFocusRect",
+            "GetClientRect",
+            "GetPropW",
+            "SetPropW",
+            "EndPaint",
+            "BeginPaint",
+            "ReleaseDC",
+            "GetDC",
+            "GetFocus",
+            "SetWindowPos",
+            "CreateWindowExW",
+            "DefWindowProcW",
+            "LoadCursorW",
+            "InflateRect",
+            "GetSysColorBrush",
+            "SetCursor",
+            "SetWindowTextW",
+            "GetParent",
+            "MessageBoxW",
+            "InvalidateRect",
+            "GetDlgItem",
+            "EndDialog",
+            "DialogBoxIndirectParamW",
+            "SendMessageW",
+            "DrawEdge",
+            "ShowWindow",
+            "SetWindowLongPtrW",
+            "UpdateWindow"
+          ]
+        },
+        {
+          "dll": "ole32.dll",
+          "symbols": [
+            "CoCreateInstance",
+            "CoInitialize"
+          ]
+        },
+        {
+          "dll": "OLEAUT32.dll",
+          "symbols": [
+            "#ordinal:12",
+            "#ordinal:9",
+            "#ordinal:8",
+            "#ordinal:150",
+            "#ordinal:7",
+            "#ordinal:6",
+            "#ordinal:2"
+          ]
+        }
+      ],
+      "resources": [
+        {
+          "index": 0,
+          "type": 1,
+          "name": 4,
+          "language": 1033,
+          "offset": 364400,
+          "bytes": 308,
+          "sha256": "5f1680788b84b19e5d22b57a0f89dd9d0bee8924197eacdec9395a3af6aace1d",
+          "utf16_ascii_runs": []
+        },
+        {
+          "index": 1,
+          "type": 3,
+          "name": 1,
+          "language": 1033,
+          "offset": 359648,
+          "bytes": 296,
+          "sha256": "2c1b37ecb2cc37d79c92d0b05fa0d40b5adb2f1f14390b27a420e98d3c31b383",
+          "utf16_ascii_runs": []
+        },
+        {
+          "index": 2,
+          "type": 3,
+          "name": 2,
+          "language": 1033,
+          "offset": 359968,
+          "bytes": 296,
+          "sha256": "22ce584d044ac7c47ba83cb1477b63b57deda58d8e14fc88f8c901fee083bb6f",
+          "utf16_ascii_runs": []
+        },
+        {
+          "index": 3,
+          "type": 3,
+          "name": 3,
+          "language": 1033,
+          "offset": 360288,
+          "bytes": 3240,
+          "sha256": "045dd3779a2510c3f4b8e9888771ce845771cdab5c0ff149693a853440795ded",
+          "utf16_ascii_runs": []
+        },
+        {
+          "index": 4,
+          "type": 4,
+          "name": "MAIN_MENU",
+          "language": 1033,
+          "offset": 359120,
+          "bytes": 522,
+          "sha256": "e1634871e9afe3d3836ccb7dfc8135ff42597da4d26e8d6e5ec009392d9b28fc",
+          "utf16_ascii_runs": [
+            {
+              "offset": 359126,
+              "text": "&File"
+            },
+            {
+              "offset": 359142,
+              "text": "Open..."
+            },
+            {
+              "offset": 359162,
+              "text": "Save..."
+            },
+            {
+              "offset": 359188,
+              "text": "&Find"
+            },
+            {
+              "offset": 359200,
+              "text": "Ctrl+F"
+            },
+            {
+              "offset": 359224,
+              "text": "Refresh"
+            },
+            {
+              "offset": 359256,
+              "text": "E&xit"
+            },
+            {
+              "offset": 359270,
+              "text": "&Empty"
+            },
+            {
+              "offset": 359288,
+              "text": "Empty &Working Sets"
+            },
+            {
+              "offset": 359332,
+              "text": "Empty &System Working Set"
+            },
+            {
+              "offset": 359388,
+              "text": "Empty &Modified Page List"
+            },
+            {
+              "offset": 359444,
+              "text": "Empty S&tandby List"
+            },
+            {
+              "offset": 359488,
+              "text": "Empty Priority 0 Standby &List"
+            },
+            {
+              "offset": 359552,
+              "text": "&Settings"
+            },
+            {
+              "offset": 359576,
+              "text": "&Colors"
+            },
+            {
+              "offset": 359594,
+              "text": "&Help"
+            },
+            {
+              "offset": 359610,
+              "text": "&Usage"
+            },
+            {
+              "offset": 359628,
+              "text": "&About"
+            }
+          ]
+        },
+        {
+          "index": 5,
+          "type": 5,
+          "name": "ABOUT",
+          "language": 1033,
+          "offset": 354048,
+          "bytes": 866,
+          "sha256": "670f0179dc66f0d840111faedc552693591cccafdd44df18c0206a428bc2d7d4",
+          "utf16_ascii_runs": [
+            {
+              "offset": 354078,
+              "text": "About RamMap"
+            },
+            {
+              "offset": 354110,
+              "text": "MS Shell Dlg"
+            },
+            {
+              "offset": 354164,
+              "text": "APPICON"
+            },
+            {
+              "offset": 354212,
+              "text": "RamMap v"
+            },
+            {
+              "offset": 354300,
+              "text": "Sysinternals - www.sysinternals.com"
+            },
+            {
+              "offset": 354404,
+              "text": "Copyright"
+            },
+            {
+              "offset": 354496,
+              "text": "Portions based on code by Alex Ionescu"
+            },
+            {
+              "offset": 354604,
+              "text": "and usage types presented by RAMMap."
+            },
+            {
+              "offset": 354708,
+              "text": "Windows Internals"
+            },
+            {
+              "offset": 354776,
+              "text": "for a complete description of the memory labels"
+            }
+          ]
+        },
+        {
+          "index": 6,
+          "type": 5,
+          "name": "ADD_DIALOG",
+          "language": 1033,
+          "offset": 354920,
+          "bytes": 344,
+          "sha256": "029e070b0dd6e60e0f4511944133b2a4d4e43fa732ccd4cd5bb690b19595d594",
+          "utf16_ascii_runs": [
+            {
+              "offset": 354950,
+              "text": "Add Signature"
+            },
+            {
+              "offset": 354984,
+              "text": "MS Shell Dlg"
+            },
+            {
+              "offset": 355076,
+              "text": "Cancel"
+            },
+            {
+              "offset": 355152,
+              "text": "File Name:"
+            },
+            {
+              "offset": 355236,
+              "text": "Description:"
+            }
+          ]
+        },
+        {
+          "index": 7,
+          "type": 5,
+          "name": "LISTVIEWFILTER_TAB",
+          "language": 1033,
+          "offset": 355384,
+          "bytes": 266,
+          "sha256": "f1df801612644e86894e1661814c5a202e74bebe4226d34174981dd9fc8ada07",
+          "utf16_ascii_runs": [
+            {
+              "offset": 355422,
+              "text": "MS Shell Dlg"
+            },
+            {
+              "offset": 355472,
+              "text": "SysListView32"
+            },
+            {
+              "offset": 355632,
+              "text": "Filter:"
+            }
+          ]
+        },
+        {
+          "index": 8,
+          "type": 5,
+          "name": "LISTVIEWGRAPH_TAB",
+          "language": 1033,
+          "offset": 355656,
+          "bytes": 184,
+          "sha256": "6c1fb1abde75c8ca56f653ff110aac12d13c04fdf1c624018d539c3b076694b0",
+          "utf16_ascii_runs": [
+            {
+              "offset": 355694,
+              "text": "MS Shell Dlg"
+            },
+            {
+              "offset": 355744,
+              "text": "SysListView32"
+            }
+          ]
+        },
+        {
+          "index": 9,
+          "type": 5,
+          "name": "LISTVIEW_TAB",
+          "language": 1033,
+          "offset": 355264,
+          "bytes": 120,
+          "sha256": "9ada4a34fbd6882caddd3c135393509172e4fdbbc7137b61ff25c6709aa22803",
+          "utf16_ascii_runs": [
+            {
+              "offset": 355302,
+              "text": "MS Shell Dlg"
+            },
+            {
+              "offset": 355352,
+              "text": "SysListView32"
+            }
+          ]
+        },
+        {
+          "index": 10,
+          "type": 5,
+          "name": "MAIN_WINDOW",
+          "language": 1033,
+          "offset": 353792,
+          "bytes": 252,
+          "sha256": "04d6dc5b2c6f17d4d0b3e7c3e71b92279dcc62db162fda502e00f2ef4c38782a",
+          "utf16_ascii_runs": [
+            {
+              "offset": 353818,
+              "text": "MAIN_MENU"
+            },
+            {
+              "offset": 353838,
+              "text": "RamMapClass"
+            },
+            {
+              "offset": 353862,
+              "text": "RamMap - Sysinternals: www.sysinternals.com"
+            },
+            {
+              "offset": 353956,
+              "text": "MS Shell Dlg"
+            },
+            {
+              "offset": 354008,
+              "text": "SysTabControl32"
+            }
+          ]
+        },
+        {
+          "index": 11,
+          "type": 5,
+          "name": "SUMMARY_TAB",
+          "language": 1033,
+          "offset": 355840,
+          "bytes": 1680,
+          "sha256": "c0960b5ae03c1891e595450bd0e317df105982eb8a64f87341a1c1675d87fefd",
+          "utf16_ascii_runs": [
+            {
+              "offset": 355878,
+              "text": "MS Shell Dlg"
+            },
+            {
+              "offset": 355964,
+              "text": "Label:"
+            },
+            {
+              "offset": 356008,
+              "text": "Label:"
+            },
+            {
+              "offset": 356052,
+              "text": "Label:"
+            },
+            {
+              "offset": 356096,
+              "text": "Label:"
+            },
+            {
+              "offset": 356140,
+              "text": "Label:"
+            },
+            {
+              "offset": 356184,
+              "text": "Label:"
+            },
+            {
+              "offset": 356228,
+              "text": "Label:"
+            },
+            {
+              "offset": 356272,
+              "text": "Label:"
+            },
+            {
+              "offset": 356316,
+              "text": "Label:"
+            },
+            {
+              "offset": 356360,
+              "text": "Label:"
+            },
+            {
+              "offset": 356404,
+              "text": "Label:"
+            },
+            {
+              "offset": 356448,
+              "text": "Label:"
+            },
+            {
+              "offset": 356492,
+              "text": "123456789 K"
+            },
+            {
+              "offset": 356548,
+              "text": "123456789 K"
+            },
+            {
+              "offset": 356604,
+              "text": "123456789 K"
+            },
+            {
+              "offset": 356660,
+              "text": "123456789 K"
+            },
+            {
+              "offset": 356716,
+              "text": "123456789 K"
+            },
+            {
+              "offset": 356772,
+              "text": "123456789 K"
+            },
+            {
+              "offset": 356828,
+              "text": "123456789 K"
+            },
+            {
+              "offset": 356884,
+              "text": "123456789 K"
+            },
+            {
+              "offset": 356940,
+              "text": "123456789 K"
+            },
+            {
+              "offset": 356996,
+              "text": "123456789 K"
+            },
+            {
+              "offset": 357052,
+              "text": "123456789 K"
+            },
+            {
+              "offset": 357108,
+              "text": "123456789 K"
+            }
+          ]
+        },
+        {
+          "index": 12,
+          "type": 5,
+          "name": "TREELIST_TAB",
+          "language": 1033,
+          "offset": 357520,
+          "bytes": 120,
+          "sha256": "92764e2538669f6d278c8fde067364adb0354e2674a38f13c081778c4ccb28b8",
+          "utf16_ascii_runs": [
+            {
+              "offset": 357558,
+              "text": "MS Shell Dlg"
+            },
+            {
+              "offset": 357608,
+              "text": "SysTreeView32"
+            }
+          ]
+        },
+        {
+          "index": 13,
+          "type": 5,
+          "name": "USAGE",
+          "language": 1033,
+          "offset": 357640,
+          "bytes": 1478,
+          "sha256": "f00159a3ba4860ca5e3bd9c1cee33e5661ade02f0f7577a25f9d296965c01716",
+          "utf16_ascii_runs": [
+            {
+              "offset": 357670,
+              "text": "RAMMap Usage"
+            },
+            {
+              "offset": 357702,
+              "text": "MS Shell Dlg"
+            },
+            {
+              "offset": 357792,
+              "text": "Usage: Rammap [[outputfile] | [[-run32] -o <inputfile.rmp>]]"
+            },
+            {
+              "offset": 357944,
+              "text": "inputfile"
+            },
+            {
+              "offset": 357996,
+              "text": "Has RAMMap open the specified log file."
+            },
+            {
+              "offset": 358108,
+              "text": "outputfile"
+            },
+            {
+              "offset": 358160,
+              "text": "Has RAMMap dump scan output to a file and exit."
+            },
+            {
+              "offset": 358288,
+              "text": "Run32"
+            },
+            {
+              "offset": 358332,
+              "text": "Launch the 32-bit RAMMap on 64-bit Windows."
+            },
+            {
+              "offset": 358452,
+              "text": "Command line mode: Rammap -E[wsmt0]"
+            },
+            {
+              "offset": 358756,
+              "text": "Empty Working Sets"
+            },
+            {
+              "offset": 358824,
+              "text": "Empty System Working Sets"
+            },
+            {
+              "offset": 358908,
+              "text": "Empty Modified Page List"
+            },
+            {
+              "offset": 358988,
+              "text": "Empty Standby List"
+            },
+            {
+              "offset": 359056,
+              "text": "Empty Priority 0 standby List"
+            }
+          ]
+        },
+        {
+          "index": 14,
+          "type": 9,
+          "name": "ACCELERATORS",
+          "language": 1033,
+          "offset": 364344,
+          "bytes": 56,
+          "sha256": "6fbd636fda823073663722e4cd990f577a48981ead1cb10291694d1d7d94d81c",
+          "utf16_ascii_runs": []
+        },
+        {
+          "index": 15,
+          "type": 12,
+          "name": "HAND",
+          "language": 1033,
+          "offset": 364712,
+          "bytes": 20,
+          "sha256": "ff47a48c11c234903a7d625cb8b62101909f735ad84266c98dd4834549452c39",
+          "utf16_ascii_runs": []
+        },
+        {
+          "index": 16,
+          "type": 14,
+          "name": "APPICON",
+          "language": 1033,
+          "offset": 363528,
+          "bytes": 20,
+          "sha256": "dc4d6703cb02352065d368c17c29c2997969323e97ed2e8ba0aac9889417cc24",
+          "utf16_ascii_runs": []
+        },
+        {
+          "index": 17,
+          "type": 14,
+          "name": 107,
+          "language": 1033,
+          "offset": 359944,
+          "bytes": 20,
+          "sha256": "ae172a9a2fd008910b537c92a95b38bfba0e5bbdaaca719bf686e6415a7a2ba1",
+          "utf16_ascii_runs": []
+        },
+        {
+          "index": 18,
+          "type": 14,
+          "name": 108,
+          "language": 1033,
+          "offset": 360264,
+          "bytes": 20,
+          "sha256": "6bcce1250099cc08d574211b3debabb0244cd2641f6d960538e7ddc97d319164",
+          "utf16_ascii_runs": []
+        },
+        {
+          "index": 19,
+          "type": 16,
+          "name": 1,
+          "language": 1033,
+          "offset": 363552,
+          "bytes": 792,
+          "sha256": "6953e6dc24917464f0279119a291d3fee46dccba9dd63d1fc2858cc31d022c56",
+          "utf16_ascii_runs": [
+            {
+              "offset": 363558,
+              "text": "VS_VERSION_INFO"
+            },
+            {
+              "offset": 363650,
+              "text": "StringFileInfo"
+            },
+            {
+              "offset": 363686,
+              "text": "040904b0"
+            },
+            {
+              "offset": 363710,
+              "text": "CompanyName"
+            },
+            {
+              "offset": 363736,
+              "text": "Sysinternals - www.sysinternals.com"
+            },
+            {
+              "offset": 363814,
+              "text": "FileDescription"
+            },
+            {
+              "offset": 363848,
+              "text": "RamMap - physical memory analyzer"
+            },
+            {
+              "offset": 363922,
+              "text": "FileVersion"
+            },
+            {
+              "offset": 363948,
+              "text": "1.61"
+            },
+            {
+              "offset": 363966,
+              "text": "InternalName"
+            },
+            {
+              "offset": 363992,
+              "text": "RamMap"
+            },
+            {
+              "offset": 364014,
+              "text": "LegalCopyright"
+            },
+            {
+              "offset": 364044,
+              "text": "Copyright "
+            },
+            {
+              "offset": 364066,
+              "text": " 2010-2022 Mark Russinovich"
+            },
+            {
+              "offset": 364130,
+              "text": "OriginalFilename"
+            },
+            {
+              "offset": 364164,
+              "text": "RamMap"
+            },
+            {
+              "offset": 364186,
+              "text": "ProductName"
+            },
+            {
+              "offset": 364212,
+              "text": "RamMap"
+            },
+            {
+              "offset": 364234,
+              "text": "ProductVersion"
+            },
+            {
+              "offset": 364264,
+              "text": "1.61"
+            },
+            {
+              "offset": 364282,
+              "text": "VarFileInfo"
+            },
+            {
+              "offset": 364314,
+              "text": "Translation"
+            }
+          ]
+        },
+        {
+          "index": 20,
+          "type": 24,
+          "name": 1,
+          "language": 1033,
+          "offset": 364736,
+          "bytes": 2052,
+          "sha256": "651cb737386ad215cda8e681c265abce2f676ffc5b90329df9737776ed773b07",
+          "utf16_ascii_runs": [],
+          "manifest_utf8": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\r\n<assembly\r\n    xmlns=\"urn:schemas-microsoft-com:asm.v1\"\r\n    manifestVersion=\"1.0\">\r\n    <assemblyIdentity\r\n        type=\"win32\"\r\n        name=\"RamMap\"\r\n        version=\"1.0.0.0\"/>\r\n    <dependency>\r\n        <dependentAssembly>\r\n            <assemblyIdentity\r\n                type=\"win32\"\r\n                name=\"Microsoft.Windows.Common-Controls\"\r\n                version=\"6.0.0.0\"\r\n                processorArchitecture=\"*\"\r\n                publicKeyToken=\"6595b64144ccf1df\"/>\r\n        </dependentAssembly>\r\n    </dependency>\r\n    <trustInfo xmlns=\"urn:schemas-microsoft-com:asm.v2\">\r\n        <security>\r\n            <requestedPrivileges>\r\n                <requestedExecutionLevel\r\n                    level=\"requireAdministrator\"\r\n                    uiAccess=\"false\"/>\r\n            </requestedPrivileges>\r\n        </security>\r\n    </trustInfo>\r\n    <compatibility xmlns=\"urn:schemas-microsoft-com:compatibility.v1\">\r\n        <application>\r\n            <!-- Windows Vista -->\r\n            <supportedOS Id=\"{e2011457-1546-43c5-a5fe-008deee3d3f0}\"/>\r\n            <!-- Windows 7 -->\r\n            <supportedOS Id=\"{35138b9a-5d96-4fbd-8e2d-a2440225f93a}\"/>\r\n            <!-- Windows 8 -->\r\n            <supportedOS Id=\"{4a2f28e3-53b9-4441-ba9c-d69d4a4a6e38}\"/>\r\n            <!-- Windows 8.1 -->\r\n            <supportedOS Id=\"{1f676c76-80e1-4239-95bb-83d0f6d0da78}\"/>\r\n            <!-- Windows 10 -->\r\n            <supportedOS Id=\"{8e0f7a12-bfb3-4fe8-b9a5-48fd50a15a9a}\"/>\r\n        </application>\r\n    </compatibility>\r\n    <application xmlns=\"urn:schemas-microsoft-com:asm.v3\">\r\n        <windowsSettings>\r\n            <dpiAware xmlns=\"http://schemas.microsoft.com/SMI/2005/WindowsSettings\">true</dpiAware>\r\n            <dpiAwareness xmlns=\"http://schemas.microsoft.com/SMI/2016/WindowsSettings\">PerMonitorV2, system</dpiAwareness>\r\n            <gdiScaling xmlns=\"http://schemas.microsoft.com/SMI/2017/WindowsSettings\">true</gdiScaling>\r\n        </windowsSettings>\r\n    </application>\r\n</assembly>\r\n"
+        }
+      ]
+    }
+  ]
+}

@@ -1,5 +1,25 @@
 ﻿# VAnta
 
+## Native Microsoft Store candidate
+
+The native Store edition (0.2.1) has a locally checked preview MSIX. It is not yet an installed or Microsoft-certified release. This edition has read-only service/startup inventory and disables system cache/standby mutations. The Python/portable feature descriptions below may differ.
+
+Build with `scripts/build-native.ps1 -Store` (Rust 1.100+). See [native usage](docs/NATIVE_USAGE.md), [release evidence and remaining gates](docs/STORE_RELEASE.md), [listing draft](docs/STORE_LISTING.md), and [privacy policy](docs/PRIVACY.md). Real Partner Center identity, public publisher/privacy details, installed-package lifecycle testing and WACK remain required before submission.
+
+
+VAnta also includes a **Memory Map** workspace for RAM diagnostics, process
+mappings, validated JSON snapshots and confirmed manual memory maintenance.
+Maintenance supports one-process working-set trim, system file-cache trim,
+and advanced standby-list purge. System-wide actions require an elevated launch;
+standby purge uses an undocumented native Windows interface. This is **not full
+RAMMap parity**. See [Memory Map usage and limitations](docs/MEMORY_MAP_USAGE.md)
+and [RAMMap investigation](docs/RAMMAP_RESEARCH.md).
+
+VAnta now includes a **Task Manager** workspace alongside **GPU Workloads**.
+Open the existing desktop shortcut, then select **Task Manager**. See
+[Task Manager usage and limitations](docs/TASK_MANAGER_USAGE.md).
+
+
 VAnta is a user-level GPU workload controller for Windows. It gives GPU jobs a
 visible queue, an explainable VRAM admission rule, controlled process launch,
 and post-launch verification.
@@ -8,8 +28,10 @@ The controller follows one loop:
 
 **Observe → Rule → Queue / Action → Verify**
 
-VAnta runs as a normal desktop application. It does not modify the NVIDIA
-driver, Windows Scheduler, registry, or system services.
+VAnta runs as a normal desktop application. The GPU controller does not modify
+NVIDIA drivers or Windows scheduling. The Task Manager workspace can explicitly
+change process priority/affinity, terminate selected processes, change startup
+entries, and control services after confirmation, subject to Windows permissions.
 
 ![VAnta dashboard](docs/images/dashboard.png)
 
@@ -134,3 +156,14 @@ restart VAnta so recovery can be checked again.
 - [License](LICENSE)
 
 
+
+
+## Rust native edition
+
+The native migration is in `native/`, with its own Cargo lockfile, data directory and build output. It adds a resource timeline, process CSV export, motion preferences and an interactive Policy Lab. The Python edition and its data remain available during validation.
+
+- [Native usage, migration scope and build instructions](docs/NATIVE_USAGE.md)
+- [Native validation and local measurements](docs/NATIVE_VALIDATION.md)
+- [Rust architecture and primary-source research](docs/RUST_RESEARCH.md)
+
+Build with `./scripts/build-native.ps1`. The output is `dist/VAnta-Native/VAntaNative.exe` and `dist/VAnta-native-windows-x64.zip`. See the validation record before treating the native edition as feature-equivalent or production validated.

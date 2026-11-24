@@ -171,3 +171,17 @@ QToolTip {
     padding: 5px;
 }
 """
+
+APP_STYLESHEET += """
+QTabWidget::pane { border: 1px solid #222633; background: #090A0F; }
+QTabBar::tab { background: #11131B; color: #9297A8; padding: 11px 16px; border-bottom: 2px solid transparent; }
+QTabBar::tab:selected { background: #211C38; color: #C4B4FF; border-bottom: 2px solid #A98DFF; }
+QTabBar::tab:hover { background: #25213A; }
+QMenu { background: #151822; color: #E7E9F2; border: 1px solid #303544; padding: 5px; }
+QMenu::item { padding: 7px 22px; }
+QMenu::item:selected { background: #302852; }
+QMenu::item:disabled { color: #606575; }
+QCheckBox { padding: 5px; }
+QDialog { background: #11131B; }
+QPlainTextEdit { background: #0C0E14; color: #E7E9F2; }
+"""

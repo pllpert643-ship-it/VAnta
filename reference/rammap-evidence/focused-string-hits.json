@@ -1,0 +1,252 @@
+{
+  "evidence_id": "LOCAL-STRING-SCAN-001",
+  "method": "Bounded exact-file static printable ASCII/UTF-16LE run search; selected names only, not exhaustive; string presence is not a call or observed behavior",
+  "artifacts": [
+    {
+      "path": "C:\\Users\\MSI GF63 Thin\\Downloads\\RAMMap\\RAMMap.exe",
+      "sha256": "9200237404fc7936ed5854d904907f0ab9a4c689f38f98b49d30599a5498c84d",
+      "hits": [
+        {
+          "offset": 226272,
+          "bytes": 24,
+          "encoding": "ascii",
+          "text": "NtQuerySystemInformation"
+        },
+        {
+          "offset": 228732,
+          "bytes": 22,
+          "encoding": "ascii",
+          "text": "NtSetSystemInformation"
+        },
+        {
+          "offset": 543768,
+          "bytes": 24,
+          "encoding": "ascii",
+          "text": "NtQuerySystemInformation"
+        },
+        {
+          "offset": 546592,
+          "bytes": 22,
+          "encoding": "ascii",
+          "text": "NtSetSystemInformation"
+        },
+        {
+          "offset": 226368,
+          "bytes": 32,
+          "encoding": "utf-16le",
+          "text": "\\Device\\FileInfo"
+        },
+        {
+          "offset": 230922,
+          "bytes": 22,
+          "encoding": "utf-16le",
+          "text": "AUse Counts"
+        },
+        {
+          "offset": 230984,
+          "bytes": 18,
+          "encoding": "utf-16le",
+          "text": "Processes"
+        },
+        {
+          "offset": 231032,
+          "bytes": 32,
+          "encoding": "utf-16le",
+          "text": "Priority Summary"
+        },
+        {
+          "offset": 231068,
+          "bytes": 28,
+          "encoding": "utf-16le",
+          "text": "Physical Pages"
+        },
+        {
+          "offset": 231140,
+          "bytes": 30,
+          "encoding": "utf-16le",
+          "text": "Physical Ranges"
+        },
+        {
+          "offset": 231172,
+          "bytes": 24,
+          "encoding": "utf-16le",
+          "text": "File Summary"
+        },
+        {
+          "offset": 231200,
+          "bytes": 24,
+          "encoding": "utf-16le",
+          "text": "File Details"
+        },
+        {
+          "offset": 232696,
+          "bytes": 62,
+          "encoding": "utf-16le",
+          "text": "SeProfileSingleProcessPrivilege"
+        },
+        {
+          "offset": 232760,
+          "bytes": 32,
+          "encoding": "utf-16le",
+          "text": "SeDebugPrivilege"
+        },
+        {
+          "offset": 232796,
+          "bytes": 48,
+          "encoding": "utf-16le",
+          "text": "SeIncreaseQuotaPrivilege"
+        },
+        {
+          "offset": 543872,
+          "bytes": 32,
+          "encoding": "utf-16le",
+          "text": "\\Device\\FileInfo"
+        },
+        {
+          "offset": 549248,
+          "bytes": 20,
+          "encoding": "utf-16le",
+          "text": "Use Counts"
+        },
+        {
+          "offset": 549312,
+          "bytes": 18,
+          "encoding": "utf-16le",
+          "text": "Processes"
+        },
+        {
+          "offset": 549368,
+          "bytes": 32,
+          "encoding": "utf-16le",
+          "text": "Priority Summary"
+        },
+        {
+          "offset": 549408,
+          "bytes": 28,
+          "encoding": "utf-16le",
+          "text": "Physical Pages"
+        },
+        {
+          "offset": 549480,
+          "bytes": 30,
+          "encoding": "utf-16le",
+          "text": "Physical Ranges"
+        },
+        {
+          "offset": 549512,
+          "bytes": 24,
+          "encoding": "utf-16le",
+          "text": "File Summary"
+        },
+        {
+          "offset": 549544,
+          "bytes": 24,
+          "encoding": "utf-16le",
+          "text": "File Details"
+        },
+        {
+          "offset": 550936,
+          "bytes": 62,
+          "encoding": "utf-16le",
+          "text": "SeProfileSingleProcessPrivilege"
+        },
+        {
+          "offset": 551000,
+          "bytes": 32,
+          "encoding": "utf-16le",
+          "text": "SeDebugPrivilege"
+        },
+        {
+          "offset": 551040,
+          "bytes": 48,
+          "encoding": "utf-16le",
+          "text": "SeIncreaseQuotaPrivilege"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\MSI GF63 Thin\\Downloads\\RAMMap\\RAMMap64a.exe",
+      "sha256": "9d110b7af0f89899bd6c8e7b3d7e689dd1e0f5471ad7aef03e8288ba169f4de3",
+      "hits": [
+        {
+          "offset": 272712,
+          "bytes": 24,
+          "encoding": "ascii",
+          "text": "NtQuerySystemInformation"
+        },
+        {
+          "offset": 276296,
+          "bytes": 22,
+          "encoding": "ascii",
+          "text": "NtSetSystemInformation"
+        },
+        {
+          "offset": 273576,
+          "bytes": 32,
+          "encoding": "utf-16le",
+          "text": "\\Device\\FileInfo"
+        },
+        {
+          "offset": 280280,
+          "bytes": 20,
+          "encoding": "utf-16le",
+          "text": "Use Counts"
+        },
+        {
+          "offset": 280344,
+          "bytes": 18,
+          "encoding": "utf-16le",
+          "text": "Processes"
+        },
+        {
+          "offset": 280400,
+          "bytes": 32,
+          "encoding": "utf-16le",
+          "text": "Priority Summary"
+        },
+        {
+          "offset": 280440,
+          "bytes": 28,
+          "encoding": "utf-16le",
+          "text": "Physical Pages"
+        },
+        {
+          "offset": 280512,
+          "bytes": 30,
+          "encoding": "utf-16le",
+          "text": "Physical Ranges"
+        },
+        {
+          "offset": 280544,
+          "bytes": 24,
+          "encoding": "utf-16le",
+          "text": "File Summary"
+        },
+        {
+          "offset": 280576,
+          "bytes": 24,
+          "encoding": "utf-16le",
+          "text": "File Details"
+        },
+        {
+          "offset": 282144,
+          "bytes": 62,
+          "encoding": "utf-16le",
+          "text": "SeProfileSingleProcessPrivilege"
+        },
+        {
+          "offset": 282208,
+          "bytes": 32,
+          "encoding": "utf-16le",
+          "text": "SeDebugPrivilege"
+        },
+        {
+          "offset": 282248,
+          "bytes": 48,
+          "encoding": "utf-16le",
+          "text": "SeIncreaseQuotaPrivilege"
+        }
+      ]
+    }
+  ]
+}

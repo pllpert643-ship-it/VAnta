@@ -1,0 +1,8 @@
+﻿{
+    "evidence_id":  "OFFICIAL-MICROSOFT-001",
+    "url":  "https://learn.microsoft.com/en-us/sysinternals/downloads/rammap",
+    "retrieved_at":  "2026-11-16T20:15:52.6917494+07:00",
+    "http_status":  200,
+    "saved_response_sha256":  "CAFA97DB20970163E8A86891D0BC2A906ED9F37F6F08307984045E8DCD8155B8",
+    "note":  "Saved UTF-8 decoded response, not raw HTTP wire bytes"
+}

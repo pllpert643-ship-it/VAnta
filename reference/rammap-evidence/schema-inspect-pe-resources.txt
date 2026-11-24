@@ -1,0 +1,24 @@
+﻿args:
+  type: object
+  properties:
+    path:
+      type: string
+      description: Local PE32/PE32+ image
+  required[1]: path
+  additionalProperties: false
+options:
+  type: object
+  properties:
+    maxFileBytes:
+      description: Maximum stable artifact bytes to read (default 64 MiB)
+      default: 67108864
+      type: integer
+      minimum: 64
+      maximum: 536870912
+    maxEntries:
+      description: Maximum resource directory entries to examine; exceeding the budget fails without partial success
+      default: 16384
+      type: integer
+      minimum: 1
+      maximum: 65536
+  additionalProperties: false

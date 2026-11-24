@@ -1,0 +1,176 @@
+﻿rea@6.5.0 — Reverse engineer anything from your terminal or agent.
+
+Usage: rea <command>
+
+Commands:
+  address-to-file-offset                  Resolve an analysis address to its original file byte offset
+  analyze                                 Get an overview of an app
+  analyze-javascript-application          Statically reconstruct a local JavaScript/Electron application
+  analyze-web-bundle                      Capture and statically analyze a page bundle, defaulting to the selected target origin
+  annotate-native-function                Edit function annotations and return refreshed analysis
+  build-reconstruction-obligation-ledger  Generate a deterministic Evidence-backed reconstruction obligation ledger page
+  capabilities                            List provider capabilities and side effects
+  capture-adb-screen                      Capture one screen frame as a digested PNG
+  capture-browser-scenario                Run one bounded Playwright browser scenario and return Evidence
+  capture-electron-scenario               Run one owned Electron scenario with cancellable actions
+  capture-native-ui-scenario              Run declarative AX actions or waits in one exact native application window
+  capture-process                         Capture one caller-selected process scenario
+  capture-web-screenshot                  Capture one visible page viewport within the supplied origin scope
+  collect-adb-bugreport                   Collect and digest one device-generated bugreport archive
+  compare                                 Compare two canonical Evidence bundles
+  compare-application-versions            Compare two authenticated JavaScript Application Graph versions
+  compare-javascript-export-shapes        Compare exact static JavaScript export return shapes without execution
+  compare-managed-members                 Compare managed PE/CLI member inventories by exact declared type, name, and signature; names alone never form a match
+  compare-process-captures                Compare two process capture Evidence JSON files
+  compare-source-to-bundle                Compare committed historical source with authenticated application Evidence
+  compare-wasm-interfaces                 Compare core WASM interfaces from two exact inspection Evidence records
+  compare-web-captures                    Compare two normalized passive captures or recorded browser scenarios
+  compare-web-screenshots                 Compare two self-verifying PNG artifact JSON values
+  cutter-command                          Execute one Rizin command in a selected live Cutter instance
+  debug-with-gdb                          Run one unrestricted GDB console command in an ephemeral MI session; provide an inferior TTY so a live target can be safely detached
+  debug-with-rizin                        Run one unrestricted Rizin debugger command in an ephemeral session
+  decode-android-resources                Decode one APK's manifest, metadata, and string resources with apktool
+  decode-interface-builder                Decode compiled storyboard and nib archives from an app bundle
+  decode-signal-recording                 Decode an existing signal recording with caller-supplied sigrok
+  decompile                               Read one part of an app as code
+  decompile-jeb-item                      Decompile one JEB type or method to engine pseudo-code
+  demangle-swift                          Demangle Swift symbols without Hopper
+  discover-webmcp-tools                   Passively discover page-declared WebMCP tools
+  doctor                                  Check whether REA is ready
+  evaluate-reconstruction-coverage        Evaluate inline fail-closed reconstruction coverage
+  evidence-export                         Validate and atomically export canonical Evidence JSON
+  evidence-import                         Validate and import a bounded local Evidence bundle
+  execute-rizin-command                   Execute one Rizin command against a local artifact
+  export-web-scripts                      Export retained website scripts into an absent directory for static JavaScript analysis
+  extract-artifact                        Extract all regular artifact contents safely
+  extract-firmware                        Extract selected firmware bytes and return verified files and provenance
+  function                                Analyze one complete function with evidence
+  identify-flutter-build                  Identify a Flutter build's Dart snapshot hash and engine facts by pure APK parsing
+  import-managed-reconstruction           Import decompiler-produced managed reconstruction against exact static member evidence
+  import-reference-source                 Import a source tree as historical reference only
+  inspect                                 Inspect an app overview with evidence
+  inspect-adb-client                      Inspect the caller-selected adb client without contacting devices
+  inspect-adb-device                      Inspect one device's build identity through a fixed getprop whitelist
+  inspect-adb-display                     Report the display's declared size and density
+  inspect-adb-package                     Inspect one installed package's version, installer, and flags through dumpsys
+  inspect-adb-window                      Report the window manager's current focus declarations
+  inspect-analysis-view                   Project a selected view of completed binary-layout, JavaScript application, native function, artifact-inventory, WASM, Mach-O, Interface Builder, EVM, managed, Android package, Dart AOT, web network capture or pcap Evidence JSON
+  inspect-android-class                   Inspect one exact APK class's member inventory
+  inspect-android-method                  Decompile one APK method with explicit overload selection
+  inspect-android-package                 Inspect APK declarations and decoded manifest without executing it
+  inspect-apktool-client                  Inspect the caller-selected apktool launcher without decoding anything
+  inspect-artifact                        Inspect one artifact and return all available observations and next probes
+  inspect-asset-catalog                   Inspect compiled Apple asset catalog metadata
+  inspect-binary-layout                   Inspect binary file/linked layout without executing the selected object
+  inspect-dart-aot                        Inspect one ABI's Dart AOT snapshot: sections, headers, and the string pool
+  inspect-electron-fuses                  Inspect packaged Electron fuse bytes without launching the application
+  inspect-electron-page                   Passively inspect one Electron file page
+  inspect-evidence-bundle                 Inspect complete or selected discovery metadata from a local Evidence bundle
+  inspect-evm-interface                   Infer interface candidates from explicit local EVM bytecode
+  inspect-firmware-regions                Inspect firmware signature candidates without extracting them
+  inspect-go-binary                       Inspect embedded Go compiler, modules and build settings without target execution
+  inspect-jeb-client                      Inspect the running JEB MCP client without opening a target
+  inspect-keyed-archive                   Inspect a Foundation keyed archive as an object-reference graph
+  inspect-macho                           Run inspect_macho without launching Hopper
+  inspect-managed-artifact                Inspect PE/CLI identity without loading target code
+  inspect-managed-members                 Inspect PE/CLI metadata members, signatures, CIL anchors, and ldstr string literals without loading target code
+  inspect-managed-native-boundaries       Inspect PE/CLI PInvoke and native implementation boundary declarations without loading target code
+  inspect-native-api                      Reconstruct one native function API boundary with evidence
+  inspect-native-data-type                Inspect one recovered database type or typed data object
+  inspect-native-dispatch-metadata        Inspect typed Objective-C and Swift dispatch metadata
+  inspect-native-instruction              Inspect one native instruction with decoded operand facts
+  inspect-native-load-image               Verify loaded native bytes, source mappings, relocations and entry
+  inspect-packet-capture                  Inspect an existing packet capture with caller-supplied TShark
+  inspect-packet-fields                   Search installed TShark protocol and field definitions
+  inspect-pcap-capture                    Inspect one pcap/pcapng capture: endpoints, DNS, TLS SNI, and protocol distribution
+  inspect-pcap-client                     Inspect the caller-selected tshark and capinfos binaries without reading a capture
+  inspect-pe-resources                    Inspect PE resource identities, payload ranges, hashes and icon-group relationships
+  inspect-plist                           Parse app plist metadata without launching Hopper
+  inspect-recorded-crash                  Inspect supplied core registers/signals and optional debugger mapping evidence
+  inspect-rust-binary                     Inspect an embedded cargo-auditable Rust dependency list without target execution
+  inspect-signal-decoders                 Search installed sigrok decoders or selected decoder help
+  inspect-signature                       Run inspect_signature without launching Hopper
+  inspect-sqlite-database                 Inspect SQLite schema and optional ordinary-table rows from a local snapshot
+  inspect-wasm-artifact                   Inspect an explicit local WASM artifact with WABT
+  inspect-web-event-listeners             Inspect native listener source locations on the first main-document CSS match
+  inspect-web-network-capture             Inspect retained HAR, native mitmproxy, Fiddler SAZ or aioquic qlog records without fetching recorded URLs
+  inspect-web-page                        Passively inspect one page through CDP, defaulting to its current origin
+  inspect-with-objdump                    Inspect a local artifact with GNU objdump and retain its raw output as Evidence
+  install-adb-package                     Install one local APK; --replace requests reinstall mode to keep existing app data
+  instructions                            Read every raw instruction without decompiling
+  instrument-with-frida                   Run one Frida script against a selected process and detach
+  list-adb-devices                        List attached devices with serial, state, transport, and inferred kind
+  list-adb-directory                      List one device directory with kinds, permissions, and sizes
+  list-adb-features                       List the device's declared hardware and software features
+  list-adb-packages                       List installed packages on one device with base APK device paths
+  list-adb-processes                      List running processes exactly as ps -A reports them
+  list-adb-services                       List the device's binder services and interfaces
+  list-architectures                      Run list_architectures without launching Hopper
+  list-browser-targets                    List page targets from a selected loopback CDP browser, optionally filtered by origin
+  list-cutter-sessions                    List live Cutter instances connected through the REA Python plugin bridge
+  list-electron-targets                   List local file pages exposed by the selected Electron CDP endpoint
+  list-frida-devices                      List local Frida devices and an optional remote endpoint
+  list-frida-processes                    List processes visible through a Frida device
+  list-javascript-runtime-targets         List Node/Electron V8 Inspector targets
+  list-jeb-units                          List JEB project units by path and type with optional filter
+  list-objdump-architectures              List BFD targets advertised by the installed GNU objdump
+  observe-javascript-runtime              Passively observe one exact Node/Electron Inspector target
+  observe-native-calls                    Launch a Mach-O under LLDB and record entries into selected functions or Objective-C methods
+  observe-native-ui                       Observe one already-running native application window by PID and window ID
+  observe-web-execution                   Observe precise page execution; resets counters and temporarily disables optimization
+  observe-web-session                     Observe user-driven page navigation during a chosen window
+  open-jeb-project                        Open or create a JEB project from an artifact or .jdb2 database
+  project-android-application-graph       Project authenticated APK inventory Evidence into an Android application graph
+  project-apple-application-graph         Project authenticated IPA or macOS app inventory Evidence into an Apple application graph
+  project-harmony-application-graph       Project authenticated HarmonyOS HAP, HSP, or App Pack inventory Evidence into an application graph
+  project-managed-application-graph       Project authenticated managed static Evidence into an application graph
+  providers                               List configured analysis providers
+  pull-adb-file                           Pull one device file to a local copy with a SHA-256 digest
+  pull-adb-package                        Pull one installed package's complete APK set with SHA-256 digests
+  push-adb-file                           Push one local file to the device; refuses existing targets without --overwrite
+  read-adb-logcat                         Read a bounded dump of the device log for one buffer
+  read-adb-setting                        Read one settings value from system, secure, or global
+  read-bytes                              Read exact provider memory bytes at one analysis address
+  reconcile-javascript-runtime            Reconcile static application and passive runtime Evidence JSON
+  recover-javascript-sources              Recover readable JavaScript modules with source provenance and verified files
+  resolve-adb-packages                    Find installed packages by case-insensitive name substring
+  resolve-native-call-targets             Resolve one static native call site
+  search                                  Search every analyzed string or procedure name
+  search-android-classes                  Search APK class names; empty query inventories all classes
+  search-bytes                            Find masked byte patterns in initialized provider memory
+  setup                                   Configure agent integrations and optional analysis providers
+  start-adb-activity                      Start an intent with am start (action, URI, component, extras)
+  start-adb-app                           Start one installed app by resolving and launching its launcher activity
+  stop-adb-app                            Force-stop every process of one package
+  trace                                   Trace a literal feature through analyzed references
+  trace-android-references                Trace incoming APK using nodes for a class or selected method
+  trace-application-feature               Trace a typed seed through authenticated application Evidence JSON
+  trace-dylib-resolution                  Trace dyld load-path resolution for a Mach-O or every executable in an app bundle
+  trace-javascript-semantics              Trace bounded static semantic relations through authenticated application Evidence
+  trace-native-ui-action                  Trace a compiled UI action selector to its native handler and direct callees
+  trace-native-values                     Trace bounded native def-use and call dependencies
+  trace-web-module-imports                Trace one captured script's native imports to URLs and captured source candidates
+  trace-web-source-location               Trace one retained script position through an explicitly selected local source map
+  uninstall                               Remove REA-owned agent configuration and skill files
+  uninstall-adb-package                   Uninstall one package and its data from the device
+  update                                  Update this REA installation and verify the installed release
+  verify-managed-native-boundaries        Verify managed P/Invoke declarations against authenticated native Evidence
+  xrefs                                   List bounded references to an analyzed address
+
+Integrations:
+  completions  Generate shell completion script
+  mcp          Register as MCP server (add, doctor)
+
+Global Options:
+  --filter-output <keys>              Filter output by key paths (e.g. foo,bar.baz,a[0,3])
+  --format <toon|json|yaml|md|jsonl>  Output format
+  --full-output                       Show full output envelope
+  --help                              Show help
+  --llms, --llms-full                 Print LLM-readable manifest
+  --mcp                               Start as MCP stdio server
+  --schema                            Show JSON Schema for command
+  --token-count                       Print token count of output (instead of output)
+  --token-limit <n>                   Limit output to n tokens
+  --token-offset <n>                  Skip first n tokens of output
+  --update                            Update to latest version
+  --version                           Show version

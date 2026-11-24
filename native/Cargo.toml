@@ -1,0 +1,33 @@
+﻿[package]
+name = "vanta-native"
+version = "0.2.1"
+edition = "2024"
+rust-version = "1.100"
+license = "MIT"
+description = "Native Rust resource observatory and GPU workload controller for Windows"
+
+[features]
+default = []
+store = []
+
+[dependencies]
+eframe = { version = "0.33", default-features = false, features = ["default_fonts", "glow", "accesskit"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+sysinfo = "0.37"
+nvml-wrapper = "0.11"
+directories = "6"
+rfd = { version = "0.15", default-features = false }
+libloading = "0.8"
+windows-sys = { version = "0.61", features = ["Win32_Foundation", "Win32_System_Threading", "Win32_System_ProcessStatus", "Win32_System_Memory", "Win32_Security", "Win32_System_SystemInformation", "Win32_System_Registry", "Win32_System_Services", "Win32_System_JobObjects", "Win32_UI_WindowsAndMessaging"] }
+
+[profile.release]
+opt-level = "s"
+lto = "thin"
+codegen-units = 1
+strip = true
+panic = "unwind"
+
+[[bin]]
+name = "VAntaNative"
+path = "src/main.rs"

@@ -24,6 +24,7 @@ from PySide6.QtWidgets import (
     QMessageBox,
     QPushButton,
     QSpinBox,
+    QTabWidget,
     QTableWidget,
     QTableWidgetItem,
     QVBoxLayout,
@@ -36,6 +37,8 @@ from vanta.core.scheduler import Scheduler
 from vanta.infra.monitor import SystemMonitor
 from vanta.ui.policy_lab import PolicyLabDialog
 from vanta.ui.widgets import FlowStep, MetricCard, TrendChart
+from vanta.ui.task_manager import TaskManagerWidget
+from vanta.ui.memory_map import MemoryMapWidget
 
 
 STATUS_COLORS = {
@@ -120,12 +123,27 @@ class MainWindow(QMainWindow):
         self.setMinimumSize(1100, 700)
         self.resize(1360, 850)
         self._build_ui()
+        self._attach_task_manager()
         self._load_activity_history()
 
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.refresh)
         self.timer.start(1000)
         self.refresh()
+
+    def _attach_task_manager(self) -> None:
+        from vanta.app import data_directory
+        dashboard = self.takeCentralWidget()
+        self.workspace_tabs = QTabWidget()
+        self.workspace_tabs.setObjectName("workspaceTabs")
+        self.workspace_tabs.addTab(dashboard, "GPU Workloads")
+        self.task_manager = TaskManagerWidget(data_directory(), self)
+        self.workspace_tabs.addTab(self.task_manager, "Task Manager")
+        self.memory_map = MemoryMapWidget(self)
+        self.workspace_tabs.addTab(self.memory_map, "Memory Map")
+        self.workspace_tabs.setCurrentIndex(1)
+        self.setCentralWidget(self.workspace_tabs)
+        self.setWindowTitle("VAnta - System Control & GPU Workloads")
 
     def _build_ui(self) -> None:
         root = QWidget()
@@ -460,6 +478,20 @@ class MainWindow(QMainWindow):
         PolicyLabDialog(self).exec()
 
     def closeEvent(self, event: object) -> None:  # noqa: N802 - Qt API
+        # Stop admitting GPU work immediately, even while a native read finishes.
+        if not getattr(self, "_shutdown_started", False):
+            self._shutdown_started = True
+            self.timer.stop()
+            for job in list(self.scheduler.jobs):
+                if job.status in {JobStatus.QUEUED, JobStatus.WAITING, JobStatus.RUNNING}:
+                    self.scheduler.cancel(job.id)
+        task_stopped = self.task_manager.shutdown()
+        memory_stopped = self.memory_map.shutdown()
+        if not (task_stopped and memory_stopped):
+            event.ignore()
+            self.statusBar().showMessage("Finishing system collection before closing...")
+            QTimer.singleShot(200, self.close)
+            return
         self.timer.stop()
         for job in list(self.scheduler.jobs):
             if job.status in {JobStatus.QUEUED, JobStatus.WAITING, JobStatus.RUNNING}:
